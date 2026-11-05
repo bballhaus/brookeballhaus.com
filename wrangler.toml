@@ -1,0 +1,10 @@
+name = "brookeballhaus"
+compatibility_date = "2026-11-01"
+
+routes = [
+  { pattern = "brookeballhaus.com", custom_domain = true },
+  { pattern = "www.brookeballhaus.com", custom_domain = true },
+]
+
+[assets]
+directory = "./public"
