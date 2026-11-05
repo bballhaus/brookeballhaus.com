@@ -5,88 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Brooke Ballhaus</title>
   <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="wrap hero">
-    <h1>Brooke Ballhaus</h1>
-    <p class="lede">BS/MS student in Computer Science (Artificial Intelligence) at Stanford. I build AI systems that are technically rigorous and built around the people who use them.</p>
+  <header class="masthead">
+    <a class="mark" href="#">Brooke Ballhaus</a>
     <nav>
-      <a href="#research">Research</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
+      <a href="#research">Gallery I</a>
+      <a href="#products">Gallery II</a>
+      <a href="#visit">Visit</a>
     </nav>
   </header>
 
-  <main class="wrap">
-    <section id="research">
+  <section class="entrance">
+    <figure class="frame portrait">
+      <div class="mat">
+        <img src="portrait.jpg" alt="Portrait of Brooke Ballhaus" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'portrait-placeholder',textContent:'Portrait'}))">
+      </div>
+    </figure>
+    <div class="intro">
+      <p class="eyebrow">A permanent collection</p>
+      <h1>Brooke Ballhaus</h1>
+      <p class="statement">Computer scientist, Stanford BS/MS in Artificial Intelligence. The works on view are AI systems built to be technically rigorous and shaped around the people who use them.</p>
+      <p class="placard-inline">Stanford, California · On view now</p>
+    </div>
+  </section>
+
+  <section id="research" class="room">
+    <header class="room-title">
+      <p class="eyebrow">Gallery I</p>
       <h2>Research</h2>
-      <article>
-        <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent cooperation in a pandemic</a></h3>
-        <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p>
-        <p class="meta">CS 224R · PyTorch · IPPO / MAPPO · SEIR simulation</p>
-      </article>
-      <article>
-        <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-thought faithfulness audit</a></h3>
-        <p>Is chain-of-thought causal, or post-hoc rationalization? Logit lens and activation patching on Llama-3-8B.</p>
-        <p class="meta">CS 281 · TransformerLens · Llama-3</p>
-      </article>
-      <article>
-        <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping from broadcast video</a></h3>
-        <p>Predicting showjumping outcomes with self-supervised video representations, controlling for the venue confound.</p>
-        <p class="meta">CS 131 · R(2+1)D · YOLOv8 · InfoNCE</p>
-      </article>
-      <article>
-        <h3><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for menstrual health</a></h3>
-        <p>Fitted Q-iteration and behavior cloning for personalized recommendations from wearable data.</p>
-        <p class="meta">CS 238 · scikit-learn · offline RL · WIS</p>
-      </article>
-      <article>
-        <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* heuristics</a></h3>
-        <p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p>
-        <p class="meta">CS 221 · Python · Q-learning</p>
-      </article>
-    </section>
+    </header>
 
-    <section id="products">
+    <div class="works">
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-1"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic</a></h3>
+          <p class="medium">PyTorch, IPPO / MAPPO, SEIR simulation</p>
+          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p>
+          <p class="credit">Stanford CS 224R</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-2"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Faithfulness Audit (Chain of Thought)</a></h3>
+          <p class="medium">TransformerLens, Llama-3-8B</p>
+          <p>Is chain-of-thought causal, or post-hoc rationalization? Logit lens and activation patching.</p>
+          <p class="credit">Stanford CS 281</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-3"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping, Broadcast</a></h3>
+          <p class="medium">R(2+1)D, YOLOv8, InfoNCE</p>
+          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the venue confound.</p>
+          <p class="credit">Stanford CS 131</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-4"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/riyanarain/mcphases-rl">Cycles (Offline RL)</a></h3>
+          <p class="medium">scikit-learn, fitted Q-iteration, behavior cloning</p>
+          <p>Personalized menstrual-health recommendations learned offline from wearable data.</p>
+          <p class="credit">Stanford CS 238 · with collaborators</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-5"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Study for a Maze with Loops</a></h3>
+          <p class="medium">Python, Q-learning, A*</p>
+          <p>Can Q-learning learn better A* heuristics for imperfect mazes?</p>
+          <p class="credit">Stanford CS 221</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="products" class="room">
+    <header class="room-title">
+      <p class="eyebrow">Gallery II</p>
       <h2>Products</h2>
-      <article>
-        <h3><a href="https://github.com/bballhaus/civitas">Civitas</a></h3>
-        <p>Helps small government contractors find compatible RFPs across 60+ California procurement sites using semantic matching.</p>
-        <p class="meta">Next.js · Postgres + pgvector · AWS Lambda · Playwright</p>
-      </article>
-      <article>
-        <h3><a href="https://rooted-stanford.vercel.app/">Rooted</a></h3>
-        <p>An AI decision partner and decision history for startup product managers. In progress with Team Geckos, Stanford CS 177.</p>
-        <p class="meta">Supabase</p>
-      </article>
-      <article>
-        <h3><a href="https://saipiens-chi.vercel.app/">SAIPIENS</a></h3>
-        <p>An AI-enabled homework system that turns curriculum PDFs into learning objectives and student units. Top contributor. Stanford CS 224G.</p>
-        <p class="meta">React · Vite · Tailwind · AWS Lambda + Cognito · Gemini</p>
-      </article>
-      <article>
-        <h3><a href="https://github.com/bballhaus/BookClubB">BookClubB</a></h3>
-        <p>An iOS app for book clubs with groups, discussion threads, and profiles.</p>
-        <p class="meta">SwiftUI · Firebase</p>
-      </article>
-      <article>
-        <h3>ReelLife</h3>
-        <p>A narrative Unity game with daily schedules, character stats, branching dialogue, and multiple endings. Team Reithrodon, Stanford CS 247G.</p>
-        <p class="meta">Unity · C#</p>
-      </article>
-    </section>
+    </header>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>I also contribute to <a href="https://github.com/crewAIInc/crewAI">crewAI</a>, the multi-agent orchestration framework.</p>
-      <p class="links">
-        <a href="https://github.com/bballhaus">GitHub</a>
-        <!-- Add when ready: Email, LinkedIn, Résumé -->
-      </p>
-    </section>
-  </main>
+    <div class="works">
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-6"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/civitas">Civitas</a></h3>
+          <p class="medium">Next.js, Postgres + pgvector, AWS Lambda, Playwright</p>
+          <p>Helps small government contractors find compatible RFPs across 60+ California procurement sites using semantic matching.</p>
+        </div>
+      </article>
 
-  <footer class="wrap">© 2026 Brooke Ballhaus</footer>
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-7"></div></div></div>
+        <div class="label">
+          <h3><a href="https://rooted-stanford.vercel.app/">Rooted</a></h3>
+          <p class="medium">Supabase</p>
+          <p>An AI decision partner and decision history for startup product managers.</p>
+          <p class="credit">Stanford CS 177 · with Team Geckos · in progress</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-8"></div></div></div>
+        <div class="label">
+          <h3><a href="https://saipiens-chi.vercel.app/">SAIPIENS</a></h3>
+          <p class="medium">React, Vite, Tailwind, AWS Lambda + Cognito, Gemini</p>
+          <p>An AI-enabled homework system that turns curriculum PDFs into learning objectives and student units.</p>
+          <p class="credit">Stanford CS 224G · top contributor</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-9"></div></div></div>
+        <div class="label">
+          <h3><a href="https://github.com/bballhaus/BookClubB">BookClubB</a></h3>
+          <p class="medium">SwiftUI, Firebase</p>
+          <p>An iOS app for book clubs with groups, discussion threads, and profiles.</p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="frame"><div class="mat"><div class="art art-10"></div></div></div>
+        <div class="label">
+          <h3>ReelLife</h3>
+          <p class="medium">Unity, C#</p>
+          <p>A narrative game with daily schedules, character stats, branching dialogue, and multiple endings.</p>
+          <p class="credit">Stanford CS 247G · with Team Reithrodon</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="visit" class="room visit">
+    <header class="room-title">
+      <p class="eyebrow">Visitor information</p>
+      <h2>Visit</h2>
+    </header>
+    <p>Currently contributing to <a href="https://github.com/crewAIInc/crewAI">crewAI</a>, the multi-agent orchestration framework.</p>
+    <p class="links">
+      <a href="https://github.com/bballhaus">GitHub</a>
+      <!-- Add when ready: LinkedIn, Email, Résumé -->
+    </p>
+  </section>
+
+  <footer>© 2026 Brooke Ballhaus · All works on loan from the artist</footer>
 </body>
 </html>
