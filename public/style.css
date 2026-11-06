@@ -61,9 +61,15 @@ h2 { font: 400 clamp(2.4rem, 5vw, 3.6rem)/1 var(--serif); margin: 0; }
 .art-9 { background: repeating-linear-gradient(0deg, #6b4a3a 0 14%, #efe8da 14% 17%, #a8743f 17% 30%, #efe8da 30% 33%); }
 .art-10 { background: radial-gradient(circle at 70% 30%, #f3e6c4 0 10%, transparent 11%), linear-gradient(#22223b, #4a4e69 60%, #9a8c98); }
 
-.visit { text-align: center; }
-.visit p { font: 400 1.3rem/1.6 var(--serif); }
-.links a { margin: 0 14px; font: 500 .75rem var(--sans); letter-spacing: .18em; text-transform: uppercase; }
+.placard-inline a { color: var(--ink); text-underline-offset: 3px; }
+.contact { display: grid; grid-template-columns: 1fr 1.4fr; gap: 6vw; align-items: start; padding-bottom: 16vh; }
+.contact-card { margin: 0; border-top: 1px solid var(--ink); }
+.contact-card div { display: grid; grid-template-columns: 9rem 1fr; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.contact-card dt { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+.contact-card dd { margin: 0; font: 400 1.35rem var(--serif); }
+.contact-card a { text-decoration: none; }
+.contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .contact { grid-template-columns: 1fr; } }
 
 footer { text-align: center; padding: 8vh 6vw 10vh; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule); }
 
