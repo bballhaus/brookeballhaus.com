@@ -26,6 +26,7 @@
   if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); return; }
 
   const vh = () => innerHeight;
+  const clamp = (v, m) => Math.max(-m, Math.min(m, v));
   const words = [...document.querySelectorAll('.words')].map(p => ({ p, ws: [...p.querySelectorAll('.w')] }));
   const speedEls = [...document.querySelectorAll('[data-speed]')];
   const parallax = [...document.querySelectorAll('[data-parallax]')];
@@ -45,11 +46,11 @@
     parallax.forEach(el => {
       const r = el.parentElement.getBoundingClientRect();
       const c = (r.top + r.height / 2 - H / 2);
-      el.style.transform = `translate3d(0,${-c * parseFloat(el.dataset.parallax)}px,0) scale(1.12)`;
+      el.style.transform = `translate3d(0,${clamp(-c * parseFloat(el.dataset.parallax), el.offsetHeight * .055)}px,0) scale(1.12)`;
     });
     drift.forEach(el => {
       const r = el.parentElement.getBoundingClientRect();
-      el.style.transform = `translate3d(0,${(r.top - H / 2) * parseFloat(el.dataset.drift)}px,0)`;
+      el.style.transform = `translate3d(0,${clamp((r.top - H / 2) * parseFloat(el.dataset.drift), el.offsetHeight * .07)}px,0) scale(1.15)`;
     });
 
     // Big titles glide in from the left as they enter.
