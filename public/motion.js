@@ -23,47 +23,54 @@
     });
     walk(p);
   });
-  if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); return; }
-
-  // Lines of color: a few thin ribbons that weave down the whole page and draw themselves as you scroll.
-  const COLORS = ['#e0603f', '#f2b134', '#2fa39b', '#3d6fd6', '#8c4fa3'];
+  // Hand-drawn marks: a few key words and numbers get a single colored underline, circle or
+  // highlighter swipe that draws itself when it scrolls into view.
   const NS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(NS, 'svg');
-  svg.classList.add('color-lines'); svg.setAttribute('aria-hidden', 'true');
-  document.body.prepend(svg);
-  let paths = [];
-  const buildLines = () => {
-    const W = document.documentElement.clientWidth, Hd = document.documentElement.scrollHeight;
-    svg.setAttribute('viewBox', `0 0 ${W} ${Hd}`); svg.style.height = Hd + 'px';
-    svg.innerHTML = '';
-    const step = Math.max(500, innerHeight * .75);
-    paths = COLORS.map((c, k) => {
-      const off = (k - 2) * 16;                       // ribbons run side by side
-      // Smooth S-curves: every node has a vertical tangent, so there are no kinks.
-      const xs = [.86, .1, .72, .2, .9, .34, .78, .06];
-      let px = W * xs[0] + off, py = -40;
-      let d = `M ${px} ${py}`;
-      for (let i = 1; py < Hd + step; i++) {
-        const nx = W * xs[i % xs.length] + off, ny = py + step;
-        d += ` C ${px} ${py + step * .55}, ${nx} ${ny - step * .55}, ${nx} ${ny}`;
-        px = nx; py = ny;
-      }
-      const p = document.createElementNS(NS, 'path');
-      p.setAttribute('d', d); p.setAttribute('stroke', c);
-      svg.append(p);
-      const len = p.getTotalLength();
-      p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
-      return { p, len };
-    });
+  const SHAPES = {
+    u: ['0 0 100 12', 'M2 7 C 22 4, 45 9, 66 6 S 92 4, 98 6'],
+    u2: ['0 0 100 14', 'M2 5 C 30 3, 70 7, 97 4 M8 11 C 35 8, 65 12, 92 9'],
+    o: ['0 0 100 40', 'M58 4 C 26 1, 3 9, 3 20 C 3 32, 30 38, 56 37 C 84 36, 98 28, 97 18 C 96 8, 74 2, 44 5'],
+    h: ['0 0 100 20', 'M1 12 C 30 10, 70 13, 99 10'],
   };
-  buildLines();
-  addEventListener('load', buildLines);
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(buildLines, 200); });
+  const COLORS = ['#e0603f', '#2fa39b', '#3d6fd6', '#d99a1e', '#8c4fa3'];
+  // Big section titles get a hand-drawn underline too.
+  document.querySelectorAll('.section-head h2, .doors h2').forEach(h => {
+    const span = document.createElement('span'); span.className = 'mk mk-title'; span.dataset.mk = 'u';
+    while (h.firstChild && !(h.firstChild.classList && h.firstChild.classList.contains('arrow'))) span.append(h.firstChild);
+    h.prepend(span);
+  });
+  const marksEls = [...document.querySelectorAll('.mk')];
+  // Shapes are drawn on a 100-wide box; scale them to each word's real pixel size so the
+  // stroke keeps an even width and the draw-in animation uses the true path length.
+  const scalePath = (d, sx, sy) => { let k = 0; return d.replace(/-?\d*\.?\d+/g, n => (parseFloat(n) * (k++ % 2 ? sy : sx)).toFixed(1)); };
+  const marks = marksEls.map((el, i) => {
+    const kind = el.dataset.mk || 'u';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('aria-hidden', 'true'); svg.classList.add('mk-svg', 'mk-' + kind);
+    const path = document.createElementNS(NS, 'path');
+    svg.style.setProperty('--mk', el.dataset.color || COLORS[i % COLORS.length]);
+    svg.style.setProperty('--mk-delay', (i % 3) * 0.12 + 's');
+    svg.append(path); el.append(svg);
+    return { svg, path, kind };
+  });
+  const sizeMarks = () => marks.forEach(({ svg, path, kind }) => {
+    const [vb, d] = SHAPES[kind], [, , vw, vh] = vb.split(' ').map(Number);
+    const r = svg.getBoundingClientRect(); if (!r.width) return;
+    svg.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
+    path.setAttribute('d', scalePath(d, r.width / vw, r.height / vh));
+    const len = Math.ceil(path.getTotalLength()) + 2;
+    path.style.strokeDasharray = len; path.style.setProperty('--len', len);
+  });
+  sizeMarks();
+  addEventListener('load', sizeMarks);
+  document.fonts && document.fonts.ready.then(sizeMarks);
+  let mrt; addEventListener('resize', () => { clearTimeout(mrt); mrt = setTimeout(sizeMarks, 150); });
+  if (!reduce) {
+    const mio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('drawn'); mio.unobserve(e.target); } }), { threshold: 1, rootMargin: '0px 0px -6% 0px' });
+    marksEls.forEach(el => mio.observe(el));
+  }
 
-  // Section titles get a painted color underline when they enter.
-  document.querySelectorAll('.section-head h2, .doors h2').forEach(h => h.classList.add('paint'));
-  const hio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('painted'); hio.unobserve(e.target); } }), { threshold: .6 });
-  document.querySelectorAll('.paint').forEach(h => hio.observe(h));
+  if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); return; }
 
   // Photos bloom from grey into full color as they scroll into view.
   const phio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bloom'); phio.unobserve(e.target); } }), { threshold: .35 });
@@ -114,10 +121,6 @@
       const n = Math.round(t * ws.length);
       ws.forEach((w, i) => w.classList.toggle('lit', i < n));
     });
-
-    // Draw the color lines in step with scrolling (slightly ahead of the viewport).
-    const reach = (y + H * .9) / Math.max(1, document.documentElement.scrollHeight);
-    paths.forEach(({ p, len }, k) => { p.style.strokeDashoffset = len * (1 - Math.min(1, reach * (1 - k * .015))); });
 
     // Progress line on the right edge.
     if (bar) bar.style.transform = `scaleY(${y / Math.max(1, document.documentElement.scrollHeight - H)})`;
