@@ -12,8 +12,8 @@
 </head>
 <body>
   <header class="topbar">
-    <a href="#" class="mono">Brooke Ballhaus</a>
-    <nav class="mono"><a href="#research">Research</a><a href="#products">Products</a><a href="#contact">Contact</a></nav>
+    <a href="index.html" class="mono">Brooke Ballhaus</a>
+    <nav class="mono"><a href="research.html">Research</a><a href="products.html">Products</a><a href="index.html#contact">Contact</a></nav>
     <span class="mono muted">Stanford, CA</span>
   </header>
 
@@ -23,7 +23,7 @@
       <h1>Brooke<br><em>Ballhaus</em></h1>
       <div class="hero-foot">
         <p class="lede">BS/MS student at Stanford building AI systems that are technically rigorous and grounded in <em>human-centered</em> design.</p>
-        <p class="mono muted small">Open-source contributor to <a href="https://github.com/crewAIInc/crewAI">crewAI</a></p>
+        <p class="mono muted small">Scroll ↓</p>
       </div>
     </div>
     <figure class="hero-photo">
@@ -32,114 +32,35 @@
     </figure>
   </section>
 
-  <section id="research" class="section">
-    <header class="section-head">
-      <p class="mono muted label">(01)</p>
-      <h2>Research</h2>
-      <p class="mono muted small count">05 projects</p>
-    </header>
-    <div class="rows">
-      <article class="row reveal">
-        <span class="num">01</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic <span class="arrow">↗</span></a></h3>
-          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p>
-          <ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul>
-        </div>
-        <span class="course">CS 224R</span>
-        <div class="thumb art art-1" aria-hidden="true"></div>
-      </article>
-      <article class="row reveal">
-        <span class="num">02</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-Thought Faithfulness Audit <span class="arrow">↗</span></a></h3>
-          <p>Is chain-of-thought causal, or post-hoc rationalization? Logit lens and activation patching on Llama-3-8B.</p>
-          <ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul>
-        </div>
-        <span class="course">CS 281</span>
-        <div class="thumb art art-2" aria-hidden="true"></div>
-      </article>
-      <article class="row reveal">
-        <span class="num">03</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping Outcome Prediction <span class="arrow">↗</span></a></h3>
-          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the venue confound.</p>
-          <ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul>
-        </div>
-        <span class="course">CS 131</span>
-        <div class="thumb art art-3" aria-hidden="true"></div>
-      </article>
-      <article class="row reveal">
-        <span class="num">04</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for Menstrual Health <span class="arrow">↗</span></a></h3>
-          <p>Personalized menstrual-health recommendations learned offline from wearable data with fitted Q-iteration and behavior cloning.</p>
-          <ul class="tags"><li>scikit-learn</li><li>Offline RL</li></ul>
-        </div>
-        <span class="course">CS 238 · with collaborators</span>
-        <div class="thumb art art-4" aria-hidden="true"></div>
-      </article>
-      <article class="row reveal">
-        <span class="num">05</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* Heuristics <span class="arrow">↗</span></a></h3>
-          <p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p>
-          <ul class="tags"><li>Python</li><li>Q-learning</li></ul>
-        </div>
-        <span class="course">CS 221</span>
-        <div class="thumb art art-5" aria-hidden="true"></div>
-      </article>
+  <section class="about section">
+    <p class="mono muted label">(01) — About</p>
+    <div class="about-grid">
+      <p class="about-text reveal">I'm a computer science student at Stanford, concentrating in <em>artificial intelligence</em>. I like problems where the technical work and the people using it matter equally: agents that learn to cooperate, models we can actually <em>audit</em>, and tools that save teachers and small teams real time.</p>
+      <div class="now reveal">
+        <p class="mono muted">Now</p>
+        <ul>
+          <li><span class="mono muted">01</span><span>Building <a href="https://rooted-stanford.vercel.app/">Rooted</a>, an AI decision partner for PMs, with Team Geckos</span></li>
+          <li><span class="mono muted">02</span><span>Contributing to <a href="https://github.com/crewAIInc/crewAI">crewAI</a>, the multi-agent framework</span></li>
+          <li><span class="mono muted">03</span><span>Finishing my BS/MS in Computer Science</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="products" class="section">
-    <header class="section-head">
-      <p class="mono muted label">(02)</p>
-      <h2>Products</h2>
-      <p class="mono muted small count">05 builds</p>
-    </header>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card-art art art-6" aria-hidden="true"></div>
-        <div class="card-meta"><span class="num">01</span><span class="course">Independent</span></div>
-        <h3><a href="https://github.com/bballhaus/civitas">Civitas <span class="arrow">↗</span></a></h3>
-        <p>Helps small government contractors find compatible RFPs across 60+ California procurement sites using semantic matching.</p>
-        <ul class="tags"><li>Next.js</li><li>pgvector</li><li>AWS Lambda</li><li>Playwright</li></ul>
-      </article>
-      <article class="card reveal">
-        <div class="card-art art art-7" aria-hidden="true"></div>
-        <div class="card-meta"><span class="num">02</span><span class="course">CS 177 · Team Geckos · in progress</span></div>
-        <h3><a href="https://rooted-stanford.vercel.app/">Rooted <span class="arrow">↗</span></a></h3>
-        <p>An AI decision partner and searchable decision history for startup product managers.</p>
-        <ul class="tags"><li>Supabase</li></ul>
-      </article>
-      <article class="card reveal">
-        <div class="card-art art art-8" aria-hidden="true"></div>
-        <div class="card-meta"><span class="num">03</span><span class="course">CS 224G · top contributor</span></div>
-        <h3><a href="https://saipiens-chi.vercel.app/">SAIPIENS <span class="arrow">↗</span></a></h3>
-        <p>An AI-enabled homework system that turns curriculum PDFs into learning objectives and student units.</p>
-        <ul class="tags"><li>React</li><li>Tailwind</li><li>AWS</li><li>Gemini</li></ul>
-      </article>
-      <article class="card reveal">
-        <div class="card-art art art-9" aria-hidden="true"></div>
-        <div class="card-meta"><span class="num">04</span><span class="course">Independent</span></div>
-        <h3><a href="https://github.com/bballhaus/BookClubB">BookClubB <span class="arrow">↗</span></a></h3>
-        <p>An iOS app for book clubs with groups, discussion threads, and profiles.</p>
-        <ul class="tags"><li>SwiftUI</li><li>Firebase</li></ul>
-      </article>
-      <article class="card reveal">
-        <div class="card-art art art-10" aria-hidden="true"></div>
-        <div class="card-meta"><span class="num">05</span><span class="course">CS 247G · Team Reithrodon</span></div>
-        <h3>ReelLife</h3>
-        <p>A narrative game with daily schedules, character stats, branching dialogue, and multiple endings.</p>
-        <ul class="tags"><li>Unity</li><li>C#</li></ul>
-      </article>
-    </div>
+  <section class="doors">
+    <a class="door" href="research.html">
+      <div class="door-art"><span class="art art-1"></span><span class="art art-2"></span><span class="art art-3"></span><span class="art art-4"></span><span class="art art-5"></span><span class="art art-1"></span></div>
+      <div class="door-label"><span class="mono">(02) · 05 projects</span><h2>Research <span class="arrow">→</span></h2></div>
+    </a>
+    <a class="door" href="products.html">
+      <div class="door-art"><span class="art art-6"></span><span class="art art-7"></span><span class="art art-8"></span><span class="art art-9"></span><span class="art art-10"></span><span class="art art-8"></span></div>
+      <div class="door-label"><span class="mono">(03) · 05 builds</span><h2>Products <span class="arrow">→</span></h2></div>
+    </a>
   </section>
 
   <section id="contact" class="section contact">
     <header class="section-head">
-      <p class="mono muted label">(03)</p>
+      <p class="mono muted label">(04)</p>
       <h2>Say <em>hello</em></h2>
     </header>
     <dl class="contact-list reveal">
