@@ -5,7 +5,7 @@
   // 1. Fade-up reveals for rows, cards and lists.
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), { threshold: .15 });
+  }), { threshold: 0, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // 2. Split the About paragraph into words so they can light up as you scroll.
@@ -71,7 +71,7 @@
     marksEls.forEach(el => mio.observe(el));
   }
 
-  if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); return; }
+  if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); document.querySelectorAll('.typed').forEach(t => t.textContent = t.dataset.phrases.split('|')[0]); return; }
 
   // Photos bloom from grey into full color as they scroll into view.
   const phio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bloom'); phio.unobserve(e.target); } }), { threshold: .35 });
@@ -87,6 +87,14 @@
   const drift = [...document.querySelectorAll('[data-drift]')];
   const titles = [...document.querySelectorAll('.slide-title, .doors h2, .contact h2')];
   const bar = document.querySelector('.progress span');
+  const ease = t => t * t * t;                       // accelerating, like cubic-bezier(.7,0,.84,0)
+  const clamp01 = v => Math.max(0, Math.min(1, v));
+  const portrait = document.querySelector('.hero-photo img.settle');
+  const heroFig = document.querySelector('.hero-photo');
+  const heroText = document.querySelector('.hero-text');
+  const chips = [...document.querySelectorAll('.chip')].map((el, i) => ({ el, i, rot: [-4, 3, 5, -3][i] || 0 }));
+  const slideUnder = [...document.querySelectorAll('.section-head .mk-title')];
+  const railItems = [...document.querySelectorAll('.rail li')].map(li => ({ li, row: document.querySelector(li.querySelector('a').getAttribute('href')) }));
 
   let ticking = false;
   const update = () => {
@@ -105,6 +113,38 @@
     drift.forEach(el => {
       const r = el.parentElement.getBoundingClientRect();
       el.style.transform = `translate3d(0,${clamp((r.top - H / 2) * parseFloat(el.dataset.drift), el.offsetHeight * .07)}px,0) scale(1.15)`;
+    });
+
+    // Portrait settles into its frame over the first ~70% of a screen of scrolling (scrubbed).
+    if (portrait) {
+      const p = clamp01(y / (H * .7));
+      portrait.style.transform = `translate3d(0,${-4 + 4 * p}%,0) scale(${1.18 - .18 * p})`;
+      heroFig.style.clipPath = `inset(${3 * p}% ${3 * p}% ${3 * p}% ${3 * p}% round ${18 * p}px)`;
+    }
+    // Scattered topic chips gather toward the tagline and fade, staggered (positions are relative to the hero text box).
+    if (chips.length) {
+      const lede = heroText.querySelector('.lede'), mark = lede.querySelector('.mk') || lede;
+      const tx = lede.offsetLeft + mark.offsetLeft + mark.offsetWidth / 2, ty = lede.offsetTop + mark.offsetTop + mark.offsetHeight / 2;
+      chips.forEach(({ el, i, rot }) => {
+        const start = i * 40, e = ease(clamp01((y - start) / 300));
+        const cx = el.offsetLeft + el.offsetWidth / 2, cy = el.offsetTop + el.offsetHeight / 2;
+        el.style.transform = `translate3d(${(tx - cx) * e}px,${(ty - cy) * e}px,0) rotate(${rot * (1 - e)}deg) scale(${1 - .75 * e})`;
+        el.style.opacity = 1 - clamp01((y - 140 - start * .6) / 120);
+      });
+    }
+    // Big page titles slip under the rule as the header scrolls away.
+    slideUnder.forEach(el => {
+      const r = el.closest('.section-head').getBoundingClientRect();
+      const p = clamp01((H * .3 - r.bottom) / (H * .3));
+      el.style.transform = `translate3d(0,${p * 115}%,0)`;
+    });
+    // Sticky project rail: each line fills as its project scrolls past; the current one turns cardinal.
+    railItems.forEach(({ li, row }) => {
+      if (!row) return;
+      const r = row.getBoundingClientRect();
+      const p = clamp01((H * .55 - r.top) / r.height);
+      li.style.setProperty('--fill', p);
+      li.classList.toggle('on', p > 0 && p < 1);
     });
 
     // Big titles glide in from the left as they enter.
@@ -126,6 +166,19 @@
     // Progress line on the right edge.
     if (bar) bar.style.transform = `scaleY(${y / Math.max(1, document.documentElement.scrollHeight - H)})`;
   };
+  // "Currently ..." line types itself, pauses, erases, and moves to the next phrase.
+  document.querySelectorAll('.typed').forEach(el => {
+    const phrases = el.dataset.phrases.split('|'); let k = 0, n = 0, dir = 1;
+    const tick = () => {
+      const w = phrases[k]; n += dir; el.textContent = w.slice(0, n);
+      let wait = dir > 0 ? 55 + Math.random() * 45 : 22;
+      if (dir > 0 && n >= w.length) { dir = -1; wait = 2200; }
+      else if (dir < 0 && n <= 0) { dir = 1; k = (k + 1) % phrases.length; wait = 350; }
+      setTimeout(tick, wait);
+    };
+    tick();
+  });
+
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', update);
   update();
