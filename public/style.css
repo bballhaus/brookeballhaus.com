@@ -1,8 +1,13 @@
 :root {
-  --bg: #f1efea;
-  --ink: #111;
-  --muted: #7a776f;
-  --line: #d6d2c8;
+  --bg: #f7f5f0;
+  --navy: #1f2a44;
+  --cardinal: #8c1515;
+  --hunter: #2f5d50;
+  --sandstone: #d8c3a0;
+  --sky: #a9cbe3;
+  --ink: #16181d;
+  --muted: #6e6f73;
+  --line: #dcd6ca;
   --serif: "Instrument Serif", "Times New Roman", serif;
   --sans: "Inter", -apple-system, "Helvetica Neue", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
@@ -51,12 +56,12 @@ h2 { font: 400 clamp(3rem, 8vw, 7.5rem)/.9 var(--serif); letter-spacing: -.03em;
 .num { font-family: var(--mono); font-size: .8rem; color: var(--muted); padding-top: 10px; }
 h3 { font: 400 clamp(1.7rem, 2.6vw, 2.4rem)/1.05 var(--serif); letter-spacing: -.01em; margin: 0 0 12px; }
 h3 a { text-decoration: none; }
-.row-main p, .card p { margin: 0 0 16px; max-width: 56ch; color: #34322e; }
+.row-main p, .card p { margin: 0 0 16px; max-width: 56ch; color: #2e3138; }
 .course { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 12px; }
 .thumb { aspect-ratio: 4/3; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
 .row:hover .thumb { transform: scale(1.04) rotate(-1deg); }
 .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.tags li { font-family: var(--mono); font-size: .64rem; letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: #4a4843; }
+.tags li { font-family: var(--mono); font-size: .64rem; letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: #3a3d44; }
 
 /* Product cards */
 .cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 7vh 32px; padding: 6vh 0 12vh; }
@@ -187,7 +192,7 @@ footer { display: flex; justify-content: space-between; padding: 22px var(--pad)
 @media (prefers-reduced-motion: reduce) { .now li { opacity: 1; transform: none; } .words .w { opacity: 1; } }
 
 /* Stock photos (Unsplash, see img/CREDITS.md) */
-.photo { display: block; width: 100%; object-fit: cover; filter: sepia(.14) saturate(.88) contrast(.97); background: #e4dfd5; }
+.photo { display: block; width: 100%; object-fit: cover; filter: none; background: #e8e4dc; }
 .thumb.photo, .card-art.photo { height: auto; }
 .door-art .tile { width: 100%; height: 100%; object-fit: cover; will-change: transform; transform: scale(1.15); }
 .door:hover .door-art { filter: saturate(1.05); }
@@ -204,17 +209,17 @@ body { position: relative; overflow-x: hidden; }
 
 /* Painted underline on section titles */
 .paint { position: relative; display: inline-block; }
-.paint::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.05em; height: .14em; background: #e0603f; transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(.2,.7,.2,1) .15s; border-radius: 2px; opacity: .85; }
+.paint::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.05em; height: .14em; background: var(--cardinal); transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(.2,.7,.2,1) .15s; border-radius: 2px; opacity: .85; }
 .paint.painted::after { transform: scaleX(1); }
 
 /* Colorful accents */
-.words .w.lit:is(em .w) , .about-text em .w.lit { color: #c4472b; }
-.progress span { background: #e0603f; }
+.words .w.lit:is(em .w) , .about-text em .w.lit { color: var(--cardinal); }
+.progress span { background: var(--cardinal); }
 .tags li { transition: background .3s, color .3s, border-color .3s; }
-.row:hover .tags li, .card:hover .tags li { background: #f2b134; border-color: #f2b134; color: #111; }
+.row:hover .tags li, .card:hover .tags li { background: var(--navy); border-color: var(--navy); color: var(--bg); }
 @media (prefers-reduced-motion: reduce) { .paint::after { transform: scaleX(1); transition: none; } }
 .photo.greyed { filter: grayscale(1) contrast(.95); transition: filter 1.4s ease .1s; }
-.photo.greyed.bloom { filter: sepia(.1) saturate(1.05) contrast(.98); }
+.photo.greyed.bloom { filter: none; }
 
 /* Hand-drawn marks on key words */
 .mk { position: relative; white-space: nowrap; isolation: isolate; }
@@ -231,7 +236,7 @@ body { position: relative; overflow-x: hidden; }
 
 /* Academia extras */
 .label.sub { margin: 72px 0 0; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
-.thumb-type { display: flex; align-items: center; justify-content: center; aspect-ratio: 4/3; background: #ece8df; font-family: var(--serif, "Instrument Serif", serif); font-size: 3rem; color: #8a857b; }
+.thumb-type { display: flex; align-items: center; justify-content: center; aspect-ratio: 4/3; background: #ece5d8; font-family: var(--serif, "Instrument Serif", serif); font-size: 3rem; color: #8a857b; }
 .coursework { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
 .coursework li { display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); font-family: "Instrument Serif", serif; font-size: 1.6rem; }
 .coursework li .mono { font-size: .85rem; align-self: center; }
@@ -246,7 +251,7 @@ body { position: relative; overflow-x: hidden; }
 .cv-entry { display: grid; grid-template-columns: 120px 1fr 240px; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .cv-entry h3 { margin: 0 0 4px; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 1.9rem; line-height: 1.1; }
 .cv-entry .role { margin: 0 0 12px; color: var(--muted); }
-.cv-entry ul { margin: 0; padding-left: 1.1em; max-width: 64ch; color: #34322e; }
+.cv-entry ul { margin: 0; padding-left: 1.1em; max-width: 64ch; color: #2e3138; }
 .cv-entry li { margin: 0 0 8px; }
 .cv-entry .when { text-align: right; }
 .skills { display: grid; grid-template-columns: 220px 1fr; gap: 12px 32px; padding: 30px 0; margin: 0; }
@@ -260,3 +265,10 @@ body { position: relative; overflow-x: hidden; }
 .mk[data-mk="o"] { margin: 0 .3em; }
 .mk-title .mk-u path { stroke-width: 4px; }
 .mk-title .mk-svg.mk-u { bottom: -.12em; height: .2em; }
+
+/* Palette details */
+a:hover { color: var(--cardinal); }
+.btn:hover { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+.num { color: var(--navy); }
+.label.sub { border-bottom-color: var(--navy); }
+.mk-h path { stroke: var(--sandstone); opacity: .6; }

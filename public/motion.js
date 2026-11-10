@@ -32,7 +32,8 @@
     o: ['0 0 100 40', 'M58 4 C 26 1, 3 9, 3 20 C 3 32, 30 38, 56 37 C 84 36, 98 28, 97 18 C 96 8, 74 2, 44 5'],
     h: ['0 0 100 20', 'M1 12 C 30 10, 70 13, 99 10'],
   };
-  const COLORS = ['#e0603f', '#2fa39b', '#3d6fd6', '#d99a1e', '#8c4fa3'];
+  // Brooke's palette: cardinal leads, show navy second, hunter green and sky now and then.
+  const COLORS = ['#8c1515', '#1f2a44', '#8c1515', '#2f5d50', '#8c1515', '#1f2a44', '#8c1515', '#7fb0d4'];
   // Big section titles get a hand-drawn underline too.
   document.querySelectorAll('.section-head h2, .doors h2').forEach(h => {
     const span = document.createElement('span'); span.className = 'mk mk-title'; span.dataset.mk = 'u';
