@@ -185,3 +185,14 @@ footer { display: flex; justify-content: space-between; padding: 22px var(--pad)
 .progress { position: fixed; right: 0; top: 0; bottom: 0; width: 2px; background: var(--line); z-index: 6; }
 .progress span { display: block; height: 100%; background: var(--ink); transform-origin: top; transform: scaleY(0); }
 @media (prefers-reduced-motion: reduce) { .now li { opacity: 1; transform: none; } .words .w { opacity: 1; } }
+
+/* Stock photos (Unsplash, see img/CREDITS.md) */
+.photo { display: block; width: 100%; object-fit: cover; filter: sepia(.14) saturate(.88) contrast(.97); background: #e4dfd5; }
+.thumb.photo, .card-art.photo { height: auto; }
+.door-art .tile { width: 100%; height: 100%; object-fit: cover; will-change: transform; transform: scale(1.15); }
+.door:hover .door-art { filter: saturate(1.05); }
+.door-art .cell { overflow: hidden; display: block; }
+.thumb-wrap { aspect-ratio: 4/3; }
+.card-art-wrap { aspect-ratio: 4/3; }
+.card:nth-child(1) .card-art-wrap, .card:nth-child(4) .card-art-wrap { aspect-ratio: 16/10; }
+.thumb.photo, .card-art.photo { height: 100%; aspect-ratio: auto; }
