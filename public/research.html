@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Brooke Ballhaus</title>
+  <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="mono">Brooke Ballhaus</a>
+    <nav class="mono"><a href="research.html" aria-current="page">Research</a><a href="products.html">Products</a><a href="index.html#contact">Contact</a></nav>
+    <span class="mono muted">Stanford, CA</span>
+  </header>
+
+  <section class="section page">
+    <header class="section-head">
+      <p class="mono muted label">(01)</p>
+      <h2>Research</h2>
+      <p class="mono muted small count">05 projects</p>
+    </header>
+    <p class="page-intro reveal">Coursework and independent research across multi-agent reinforcement learning, interpretability, computer vision and offline RL.</p>
+    <div class="rows">
+      <article class="row reveal">
+        <span class="num">01</span>
+        <div class="row-main">
+          <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic <span class="arrow">↗</span></a></h3>
+          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p>
+          <ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul>
+        </div>
+        <span class="course">CS 224R</span>
+        <div class="thumb art art-1" aria-hidden="true"></div>
+      </article>
+      <article class="row reveal">
+        <span class="num">02</span>
+        <div class="row-main">
+          <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-Thought Faithfulness Audit <span class="arrow">↗</span></a></h3>
+          <p>Is chain-of-thought causal, or post-hoc rationalization? Logit lens and activation patching on Llama-3-8B.</p>
+          <ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul>
+        </div>
+        <span class="course">CS 281</span>
+        <div class="thumb art art-2" aria-hidden="true"></div>
+      </article>
+      <article class="row reveal">
+        <span class="num">03</span>
+        <div class="row-main">
+          <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping Outcome Prediction <span class="arrow">↗</span></a></h3>
+          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the venue confound.</p>
+          <ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul>
+        </div>
+        <span class="course">CS 131</span>
+        <div class="thumb art art-3" aria-hidden="true"></div>
+      </article>
+      <article class="row reveal">
+        <span class="num">04</span>
+        <div class="row-main">
+          <h3><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for Menstrual Health <span class="arrow">↗</span></a></h3>
+          <p>Personalized menstrual-health recommendations learned offline from wearable data with fitted Q-iteration and behavior cloning.</p>
+          <ul class="tags"><li>scikit-learn</li><li>Offline RL</li></ul>
+        </div>
+        <span class="course">CS 238 · with collaborators</span>
+        <div class="thumb art art-4" aria-hidden="true"></div>
+      </article>
+      <article class="row reveal">
+        <span class="num">05</span>
+        <div class="row-main">
+          <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* Heuristics <span class="arrow">↗</span></a></h3>
+          <p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p>
+          <ul class="tags"><li>Python</li><li>Q-learning</li></ul>
+        </div>
+        <span class="course">CS 221</span>
+        <div class="thumb art art-5" aria-hidden="true"></div>
+      </article>
+    </div>
+  </section>
+  <nav class="next mono"><a href="index.html">← Home</a><a href="products.html">Products →</a></nav>
+
+  <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
