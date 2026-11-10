@@ -7,7 +7,7 @@
   <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,41 +20,41 @@
   <section class="section page">
     <header class="section-head">
       <p class="mono muted label">(02)</p>
-      <h2>Products</h2>
+      <h2 class="slide-title">Products</h2>
       <p class="mono muted small count">05 builds</p>
     </header>
     <p class="page-intro reveal">Things I've built and shipped, solo and with teams: from procurement search to classroom tools to a narrative game.</p>
     <div class="cards">
       <article class="card reveal">
-        <div class="card-art art art-6" aria-hidden="true"></div>
+        <div class="card-art-wrap"><div class="card-art art art-6" data-parallax="0.1" aria-hidden="true"></div></div>
         <div class="card-meta"><span class="num">01</span><span class="course">Independent</span></div>
         <h3><a href="https://github.com/bballhaus/civitas">Civitas <span class="arrow">↗</span></a></h3>
         <p>Helps small government contractors find compatible RFPs across 60+ California procurement sites using semantic matching.</p>
         <ul class="tags"><li>Next.js</li><li>pgvector</li><li>AWS Lambda</li><li>Playwright</li></ul>
       </article>
       <article class="card reveal">
-        <div class="card-art art art-7" aria-hidden="true"></div>
+        <div class="card-art-wrap"><div class="card-art art art-7" data-parallax="0.1" aria-hidden="true"></div></div>
         <div class="card-meta"><span class="num">02</span><span class="course">CS 177 · Team Geckos · in progress</span></div>
         <h3><a href="https://rooted-stanford.vercel.app/">Rooted <span class="arrow">↗</span></a></h3>
         <p>An AI decision partner and searchable decision history for startup product managers.</p>
         <ul class="tags"><li>Supabase</li></ul>
       </article>
       <article class="card reveal">
-        <div class="card-art art art-8" aria-hidden="true"></div>
+        <div class="card-art-wrap"><div class="card-art art art-8" data-parallax="0.1" aria-hidden="true"></div></div>
         <div class="card-meta"><span class="num">03</span><span class="course">CS 224G · top contributor</span></div>
         <h3><a href="https://saipiens-chi.vercel.app/">SAIPIENS <span class="arrow">↗</span></a></h3>
         <p>An AI-enabled homework system that turns curriculum PDFs into learning objectives and student units.</p>
         <ul class="tags"><li>React</li><li>Tailwind</li><li>AWS</li><li>Gemini</li></ul>
       </article>
       <article class="card reveal">
-        <div class="card-art art art-9" aria-hidden="true"></div>
+        <div class="card-art-wrap"><div class="card-art art art-9" data-parallax="0.1" aria-hidden="true"></div></div>
         <div class="card-meta"><span class="num">04</span><span class="course">Independent</span></div>
         <h3><a href="https://github.com/bballhaus/BookClubB">BookClubB <span class="arrow">↗</span></a></h3>
         <p>An iOS app for book clubs with groups, discussion threads, and profiles.</p>
         <ul class="tags"><li>SwiftUI</li><li>Firebase</li></ul>
       </article>
       <article class="card reveal">
-        <div class="card-art art art-10" aria-hidden="true"></div>
+        <div class="card-art-wrap"><div class="card-art art art-10" data-parallax="0.1" aria-hidden="true"></div></div>
         <div class="card-meta"><span class="num">05</span><span class="course">CS 247G · Team Reithrodon</span></div>
         <h3>ReelLife</h3>
         <p>A narrative game with daily schedules, character stats, branching dialogue, and multiple endings.</p>
@@ -66,9 +66,7 @@
 
   <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
 
-  <script>
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <script src="motion.js"></script>
 </body>
 </html>
