@@ -197,12 +197,11 @@ footer { display: flex; justify-content: space-between; padding: 22px var(--pad)
 .card:nth-child(1) .card-art-wrap, .card:nth-child(4) .card-art-wrap { aspect-ratio: 16/10; }
 .thumb.photo, .card-art.photo { height: 100%; aspect-ratio: auto; }
 
-/* Color field behind the content */
-.color-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.color-field i { position: absolute; left: 50%; top: 50%; width: 62vmax; height: 62vmax; margin: -31vmax 0 0 -31vmax; border-radius: 50%; opacity: .5; filter: blur(30px); mix-blend-mode: multiply; transition: background 1.2s ease; will-change: transform; }
-.color-field i:nth-child(2) { width: 48vmax; height: 48vmax; margin: -24vmax 0 0 -24vmax; opacity: .45; }
-.color-field i:nth-child(3) { width: 38vmax; height: 38vmax; margin: -19vmax 0 0 -19vmax; opacity: .4; }
-body > *:not(.color-field):not(.progress) { position: relative; z-index: 1; }
+/* Lines of color behind the content */
+.color-lines { position: absolute; left: 0; top: 0; width: 100%; z-index: 0; pointer-events: none; overflow: visible; }
+.color-lines path { fill: none; stroke-width: 2.5; stroke-linecap: round; opacity: .8; }
+body { position: relative; overflow-x: hidden; }
+body > *:not(.color-lines):not(.progress) { position: relative; z-index: 1; }
 .topbar { z-index: 5 !important; position: sticky !important; }
 .door-label { background: linear-gradient(transparent, rgba(241,239,234,.92) 45%); }
 
@@ -216,6 +215,6 @@ body > *:not(.color-field):not(.progress) { position: relative; z-index: 1; }
 .progress span { background: linear-gradient(#e0603f, #f2b134, #7fae8c, #3d6fd6, #8c4fa3); }
 .tags li { transition: background .3s, color .3s, border-color .3s; }
 .row:hover .tags li, .card:hover .tags li { background: #f2b134; border-color: #f2b134; color: #111; }
-@media (prefers-reduced-motion: reduce) { .color-field i { transition: none; } .paint::after { transform: scaleX(1); transition: none; } }
+@media (prefers-reduced-motion: reduce) { .color-lines path { stroke-dashoffset: 0 !important; } .paint::after { transform: scaleX(1); transition: none; } }
 .photo.greyed { filter: grayscale(1) contrast(.95); transition: filter 1.4s ease .1s; }
 .photo.greyed.bloom { filter: sepia(.1) saturate(1.05) contrast(.98); }
