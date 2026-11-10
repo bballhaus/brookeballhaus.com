@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research — Brooke Ballhaus</title>
+  <title>Academia — Brooke Ballhaus</title>
   <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,24 @@
 <body>
   <header class="topbar">
     <a href="index.html" class="mono">Brooke Ballhaus</a>
-    <nav class="mono"><a href="research.html" aria-current="page">Research</a><a href="products.html">Products</a><a href="index.html#contact">Contact</a></nav>
+    <nav class="mono"><a href="research.html" aria-current="page">Academia</a><a href="products.html">Products</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav>
     <span class="mono muted">Stanford, CA</span>
   </header>
 
   <section class="section page">
     <header class="section-head">
       <p class="mono muted label">(01)</p>
-      <h2 class="slide-title">Research</h2>
-      <p class="mono muted small count">05 projects</p>
+      <h2 class="slide-title">Academia</h2>
+      <p class="mono muted small count">06 projects</p>
     </header>
-    <p class="page-intro reveal">Coursework and independent research across multi-agent reinforcement learning, interpretability, computer vision and offline RL.</p>
+    <p class="page-intro reveal">Research, teaching and coursework at Stanford, across multi-agent reinforcement learning, interpretability, computer vision and clinical NLP.</p>
+    <p class="mono muted label sub">Research &amp; projects</p>
     <div class="rows">
       <article class="row reveal">
         <span class="num">01</span>
         <div class="row-main">
           <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic <span class="arrow">↗</span></a></h3>
-          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p>
+          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths <span class="mk" data-mk="o">4–11%</span> versus selfish baselines.</p>
           <ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul>
         </div>
         <span class="course">CS 224R</span>
@@ -40,7 +41,7 @@
         <span class="num">02</span>
         <div class="row-main">
           <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-Thought Faithfulness Audit <span class="arrow">↗</span></a></h3>
-          <p>Is chain-of-thought causal, or post-hoc rationalization? Logit lens and activation patching on Llama-3-8B.</p>
+          <p>When can we trust AI explanations? A mechanistic audit of chain-of-thought in Llama-3-8B with logit lens and activation patching: the model commits to its answer in the <span class="mk" data-mk="u">last ~3 of 32 layers</span> whether or not it reasons first.</p>
           <ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul>
         </div>
         <span class="course">CS 281</span>
@@ -50,7 +51,7 @@
         <span class="num">03</span>
         <div class="row-main">
           <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping Outcome Prediction <span class="arrow">↗</span></a></h3>
-          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the venue confound.</p>
+          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the <span class="mk" data-mk="u">venue confound</span>.</p>
           <ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul>
         </div>
         <span class="course">CS 131</span>
@@ -58,6 +59,16 @@
       </article>
       <article class="row reveal">
         <span class="num">04</span>
+        <div class="row-main">
+          <h3>Extracting HPO Codes from Clinical Notes</h3>
+          <p>A hierarchical approach to pulling <span class="mk" data-mk="h">Human Phenotype Ontology</span> codes out of free-text clinical notes, so rare-disease phenotypes can be coded without manual chart review. With Riya Narain.</p>
+          <ul class="tags"><li>NLP</li><li>Clinical text</li><li>HPO</li></ul>
+        </div>
+        <span class="course">CS 224N · Winter 2025</span>
+        <div class="thumb-wrap"><span class="thumb thumb-type" aria-hidden="true"><em>NLP</em></span></div>
+      </article>
+      <article class="row reveal">
+        <span class="num">05</span>
         <div class="row-main">
           <h3><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for Menstrual Health <span class="arrow">↗</span></a></h3>
           <p>Personalized menstrual-health recommendations learned offline from wearable data with fitted Q-iteration and behavior cloning.</p>
@@ -67,7 +78,7 @@
         <div class="thumb-wrap"><img class="thumb photo" src="img/research-cycles.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
       </article>
       <article class="row reveal">
-        <span class="num">05</span>
+        <span class="num">06</span>
         <div class="row-main">
           <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* Heuristics <span class="arrow">↗</span></a></h3>
           <p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p>
@@ -77,6 +88,29 @@
         <div class="thumb-wrap"><img class="thumb photo" src="img/research-astar.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
       </article>
     </div>
+
+    <p class="mono muted label sub reveal">Teaching</p>
+    <div class="rows">
+      <article class="row reveal">
+        <span class="num">T1</span>
+        <div class="row-main">
+          <h3>CS107 Teaching Assistant</h3>
+          <p>Lead weekly lab sections for Stanford's systems programming course, teaching C, memory, and debugging with gdb and Valgrind to 30 students.</p>
+        </div>
+        <span class="course">Stanford · 09/2026 – now</span>
+        <div></div>
+      </article>
+    </div>
+    <p class="mono muted label sub reveal">Graduate coursework</p>
+    <ul class="coursework reveal">
+      <li>NLP with Deep Learning <span class="mono muted">CS 224N</span></li>
+      <li>Deep Reinforcement Learning <span class="mono muted">CS 224R</span></li>
+      <li>Trustworthy Machine Learning <span class="mono muted">CS 281</span></li>
+      <li>Decision Making Under Uncertainty <span class="mono muted">CS 238</span></li>
+      <li>Computer Vision <span class="mono muted">CS 131</span></li>
+      <li>Building LLM Products <span class="mono muted">CS 224G</span></li>
+    </ul>
+
   </section>
   <nav class="next mono"><a href="index.html">← Home</a><a href="products.html">Products →</a></nav>
 
