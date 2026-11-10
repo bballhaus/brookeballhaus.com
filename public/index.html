@@ -7,7 +7,7 @@
   <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,14 +20,14 @@
   <section class="hero">
     <div class="hero-text">
       <p class="mono muted label">(00) — Computer Science · AI</p>
-      <h1>Brooke<br><em>Ballhaus</em></h1>
+      <h1><span class="h1a" data-speed="-0.12">Brooke</span><br><em class="h1b" data-speed="0.18">Ballhaus</em></h1>
       <div class="hero-foot">
         <p class="lede">BS/MS student at Stanford building AI systems that are technically rigorous and grounded in <em>human-centered</em> design.</p>
         <p class="mono muted small">Scroll ↓</p>
       </div>
     </div>
     <figure class="hero-photo">
-      <img src="portrait.jpg" alt="Brooke Ballhaus on the Stanford Main Quad">
+      <img data-parallax="0.15" src="portrait.jpg" alt="Brooke Ballhaus on the Stanford Main Quad">
       <figcaption class="mono muted small">Main Quad, Stanford</figcaption>
     </figure>
   </section>
@@ -35,7 +35,7 @@
   <section class="about section">
     <p class="mono muted label">(01) — About</p>
     <div class="about-grid">
-      <p class="about-text reveal">I'm a computer science student at Stanford, concentrating in <em>artificial intelligence</em>. I like problems where the technical work and the people using it matter equally: agents that learn to cooperate, models we can actually <em>audit</em>, and tools that save teachers and small teams real time.</p>
+      <p class="about-text words">I'm a computer science student at Stanford, concentrating in <em>artificial intelligence</em>. I like problems where the technical work and the people using it matter equally: agents that learn to cooperate, models we can actually <em>audit</em>, and tools that save teachers and small teams real time.</p>
       <div class="now reveal">
         <p class="mono muted">Now</p>
         <ul>
@@ -49,11 +49,11 @@
 
   <section class="doors">
     <a class="door" href="research.html">
-      <div class="door-art"><span class="art art-1"></span><span class="art art-2"></span><span class="art art-3"></span><span class="art art-4"></span><span class="art art-5"></span><span class="art art-1"></span></div>
+      <div class="door-art"><span class="art art-1" data-drift="0.04"></span><span class="art art-2" data-drift="-0.07"></span><span class="art art-3" data-drift="0.1"></span><span class="art art-4" data-drift="-0.04"></span><span class="art art-5" data-drift="0.07"></span><span class="art art-1" data-drift="-0.1"></span></div>
       <div class="door-label"><span class="mono">(02) · 05 projects</span><h2>Research <span class="arrow">→</span></h2></div>
     </a>
     <a class="door" href="products.html">
-      <div class="door-art"><span class="art art-6"></span><span class="art art-7"></span><span class="art art-8"></span><span class="art art-9"></span><span class="art art-10"></span><span class="art art-8"></span></div>
+      <div class="door-art"><span class="art art-6" data-drift="0.04"></span><span class="art art-7" data-drift="-0.07"></span><span class="art art-8" data-drift="0.1"></span><span class="art art-9" data-drift="-0.04"></span><span class="art art-10" data-drift="0.07"></span><span class="art art-8" data-drift="-0.1"></span></div>
       <div class="door-label"><span class="mono">(03) · 05 builds</span><h2>Products <span class="arrow">→</span></h2></div>
     </a>
   </section>
@@ -65,15 +65,14 @@
     </header>
     <dl class="contact-list reveal">
       <div><dt class="mono">GitHub</dt><dd><a href="https://github.com/bballhaus">github.com/bballhaus <span class="arrow">↗</span></a></dd></div>
-      <!-- LinkedIn and email rows go here -->
+      <div><dt class="mono">Email</dt><dd><a href="mailto:ballhaus@stanford.edu">ballhaus@stanford.edu <span class="arrow">↗</span></a></dd></div>
+      <!-- LinkedIn row goes here -->
     </dl>
   </section>
 
   <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
 
-  <script>
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <script src="motion.js"></script>
 </body>
 </html>

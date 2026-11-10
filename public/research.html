@@ -7,7 +7,7 @@
   <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <section class="section page">
     <header class="section-head">
       <p class="mono muted label">(01)</p>
-      <h2>Research</h2>
+      <h2 class="slide-title">Research</h2>
       <p class="mono muted small count">05 projects</p>
     </header>
     <p class="page-intro reveal">Coursework and independent research across multi-agent reinforcement learning, interpretability, computer vision and offline RL.</p>
@@ -33,7 +33,7 @@
           <ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul>
         </div>
         <span class="course">CS 224R</span>
-        <div class="thumb art art-1" aria-hidden="true"></div>
+        <div class="thumb-wrap"><div class="thumb art art-1" data-parallax="0.08" aria-hidden="true"></div></div>
       </article>
       <article class="row reveal">
         <span class="num">02</span>
@@ -43,7 +43,7 @@
           <ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul>
         </div>
         <span class="course">CS 281</span>
-        <div class="thumb art art-2" aria-hidden="true"></div>
+        <div class="thumb-wrap"><div class="thumb art art-2" data-parallax="0.08" aria-hidden="true"></div></div>
       </article>
       <article class="row reveal">
         <span class="num">03</span>
@@ -53,7 +53,7 @@
           <ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul>
         </div>
         <span class="course">CS 131</span>
-        <div class="thumb art art-3" aria-hidden="true"></div>
+        <div class="thumb-wrap"><div class="thumb art art-3" data-parallax="0.08" aria-hidden="true"></div></div>
       </article>
       <article class="row reveal">
         <span class="num">04</span>
@@ -63,7 +63,7 @@
           <ul class="tags"><li>scikit-learn</li><li>Offline RL</li></ul>
         </div>
         <span class="course">CS 238 · with collaborators</span>
-        <div class="thumb art art-4" aria-hidden="true"></div>
+        <div class="thumb-wrap"><div class="thumb art art-4" data-parallax="0.08" aria-hidden="true"></div></div>
       </article>
       <article class="row reveal">
         <span class="num">05</span>
@@ -73,7 +73,7 @@
           <ul class="tags"><li>Python</li><li>Q-learning</li></ul>
         </div>
         <span class="course">CS 221</span>
-        <div class="thumb art art-5" aria-hidden="true"></div>
+        <div class="thumb-wrap"><div class="thumb art art-5" data-parallax="0.08" aria-hidden="true"></div></div>
       </article>
     </div>
   </section>
@@ -81,9 +81,7 @@
 
   <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
 
-  <script>
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <script src="motion.js"></script>
 </body>
 </html>
