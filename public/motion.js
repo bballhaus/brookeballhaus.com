@@ -25,38 +25,50 @@
   });
   if (reduce) { document.querySelectorAll('.w').forEach(w => w.style.opacity = 1); return; }
 
-  // Color field: soft blurred blobs behind the page that change palette per section.
-  const PALETTES = [
-    ['#e0603f', '#f2b134', '#f3a6b8'],   // terracotta, saffron, blush
-    ['#f2b134', '#7fae8c', '#3d6fd6'],   // saffron, sage, cobalt
-    ['#3d6fd6', '#2fa39b', '#f2b134'],   // cobalt, teal, saffron
-    ['#e0603f', '#8c4fa3', '#f2b134'],   // terracotta, plum, saffron
-    ['#f3a6b8', '#3d6fd6', '#7fae8c'],   // blush, cobalt, sage
-  ];
-  const field = document.createElement('div');
-  field.className = 'color-field'; field.setAttribute('aria-hidden', 'true');
-  field.innerHTML = '<i></i><i></i><i></i>';
-  document.body.prepend(field);
-  const blobs = [...field.children];
-  const sections = [...document.querySelectorAll('body > section, body > .hero')];
-  sections.forEach((sec, i) => { sec.dataset.palette = i % PALETTES.length; });
-  let current = -1;
-  const setPalette = i => {
-    if (i === current) return; current = i;
-    PALETTES[i].forEach((c, k) => blobs[k].style.background = `radial-gradient(circle at 50% 50%, ${c} 0%, ${c}00 68%)`);
+  // Lines of color: a few thin ribbons that weave down the whole page and draw themselves as you scroll.
+  const COLORS = ['#e0603f', '#f2b134', '#2fa39b', '#3d6fd6', '#8c4fa3'];
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.classList.add('color-lines'); svg.setAttribute('aria-hidden', 'true');
+  document.body.prepend(svg);
+  let paths = [];
+  const buildLines = () => {
+    const W = document.documentElement.clientWidth, Hd = document.documentElement.scrollHeight;
+    svg.setAttribute('viewBox', `0 0 ${W} ${Hd}`); svg.style.height = Hd + 'px';
+    svg.innerHTML = '';
+    const step = Math.max(500, innerHeight * .75);
+    paths = COLORS.map((c, k) => {
+      const off = (k - 2) * 16;                       // ribbons run side by side
+      // Smooth S-curves: every node has a vertical tangent, so there are no kinks.
+      const xs = [.86, .1, .72, .2, .9, .34, .78, .06];
+      let px = W * xs[0] + off, py = -40;
+      let d = `M ${px} ${py}`;
+      for (let i = 1; py < Hd + step; i++) {
+        const nx = W * xs[i % xs.length] + off, ny = py + step;
+        d += ` C ${px} ${py + step * .55}, ${nx} ${ny - step * .55}, ${nx} ${ny}`;
+        px = nx; py = ny;
+      }
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d); p.setAttribute('stroke', c);
+      svg.append(p);
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
+      return { p, len };
+    });
   };
-  setPalette(0);
-  const pio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setPalette(+e.target.dataset.palette); }), { rootMargin: '-45% 0px -45% 0px' });
-  sections.forEach(s => pio.observe(s));
-
-  // Photos bloom from grey into full color as they scroll into view.
-  const phio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bloom'); phio.unobserve(e.target); } }), { threshold: .35 });
-  document.querySelectorAll('.photo').forEach(ph => { ph.classList.add('greyed'); phio.observe(ph); });
+  buildLines();
+  addEventListener('load', buildLines);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(buildLines, 200); });
 
   // Section titles get a painted color underline when they enter.
   document.querySelectorAll('.section-head h2, .doors h2').forEach(h => h.classList.add('paint'));
   const hio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('painted'); hio.unobserve(e.target); } }), { threshold: .6 });
   document.querySelectorAll('.paint').forEach(h => hio.observe(h));
+
+  // Photos bloom from grey into full color as they scroll into view.
+  const phio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bloom'); phio.unobserve(e.target); } }), { threshold: .35 });
+  document.querySelectorAll('.photo').forEach(ph => { ph.classList.add('greyed'); phio.observe(ph); });
+
 
 
   const vh = () => innerHeight;
@@ -103,14 +115,9 @@
       ws.forEach((w, i) => w.classList.toggle('lit', i < n));
     });
 
-    // Blobs orbit and breathe as you scroll.
-    const p = y / Math.max(1, document.documentElement.scrollHeight - H);
-    blobs.forEach((b, k) => {
-      const a = p * Math.PI * 4 + k * 2.1;
-      const x = 50 + Math.cos(a) * (28 + k * 6), yy = 45 + Math.sin(a * .8) * (26 - k * 4);
-      const sc = 1 + .25 * Math.sin(a * 1.3);
-      b.style.transform = `translate3d(${x - 50}vw, ${yy - 50}vh, 0) scale(${sc})`;
-    });
+    // Draw the color lines in step with scrolling (slightly ahead of the viewport).
+    const reach = (y + H * .9) / Math.max(1, document.documentElement.scrollHeight);
+    paths.forEach(({ p, len }, k) => { p.style.strokeDashoffset = len * (1 - Math.min(1, reach * (1 - k * .015))); });
 
     // Progress line on the right edge.
     if (bar) bar.style.transform = `scaleY(${y / Math.max(1, document.documentElement.scrollHeight - H)})`;
