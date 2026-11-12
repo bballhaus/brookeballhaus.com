@@ -3,7 +3,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Deep links (e.g. /#note) land on their section even after layout settles.
-  if (location.hash) addEventListener('load', () => requestAnimationFrame(() => { try { document.querySelector(location.hash)?.scrollIntoView(); } catch (_) {} }));
+  if (location.hash) addEventListener('load', () => setTimeout(() => document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({ behavior: 'instant' }), 60));
 
   // "Drop me a note": compose a clean email in the visitor's mail app.
   document.querySelectorAll('.note-form').forEach(f => f.addEventListener('submit', e => {
