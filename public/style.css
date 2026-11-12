@@ -301,3 +301,19 @@ a:hover { color: var(--cardinal); }
 @media (max-width: 1100px) { .with-rail { grid-template-columns: 1fr; } .rail { display: none; } .with-rail .row { grid-template-columns: 120px 1fr 200px 220px; gap: 32px; } }
 @media (max-width: 800px) { .with-rail .row { grid-template-columns: 50px 1fr; gap: 16px; } .chips { display: none; } }
 @media (prefers-reduced-motion: reduce) { .hero-photo img.settle { transform: none; } .chips { display: none; } .caret { animation: none; } }
+
+/* Drop me a note */
+.note-form { display: grid; grid-template-columns: 120px 1fr; column-gap: 32px; padding: 5vh 0 2vh; }
+.note-form > * { grid-column: 2; }
+.note-intro { font: 400 clamp(1.2rem, 1.8vw, 1.6rem)/1.35 var(--serif); max-width: 38ch; margin: 0 0 4vh; }
+.note-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; max-width: 900px; }
+.note-fields label { display: flex; flex-direction: column; gap: 8px; }
+.note-fields .wide { grid-column: 1 / -1; }
+.note-fields input, .note-fields textarea { font: 400 1.35rem/1.4 var(--serif); color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--ink); padding: 6px 0 8px; border-radius: 0; resize: vertical; outline: none; transition: border-color .25s cubic-bezier(.4,0,.2,1); }
+.note-fields input:focus, .note-fields textarea:focus { border-bottom-color: var(--cardinal); box-shadow: 0 1px 0 var(--cardinal); }
+.note-fields ::placeholder { color: var(--muted); font-style: italic; }
+.note-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 36px; }
+.note-actions .btn { background: transparent; font: inherit; font-size: 1rem; cursor: pointer; }
+.note-actions .btn:hover { background: var(--cardinal); border-color: var(--cardinal); color: var(--bg); }
+.note-status { margin: 0; }
+@media (max-width: 800px) { .note-form { grid-template-columns: 1fr; } .note-form > * { grid-column: 1; } .note-fields { grid-template-columns: 1fr; } }

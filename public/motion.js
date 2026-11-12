@@ -2,6 +2,17 @@
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // "Drop me a note": compose a clean email in the visitor's mail app.
+  document.querySelectorAll('.note-form').forEach(f => f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    const v = n => f.elements[n].value.trim();
+    const subject = `Note from ${v('name')} via brookeballhaus.com`;
+    const body = `${v('message')}\n\n${v('name')}\n${v('email')}`;
+    location.href = `mailto:ballhaus@stanford.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const st = f.querySelector('.note-status'); if (st) st.textContent = 'Your email app should open with the note ready to send.';
+  }));
+
   // 1. Fade-up reveals for rows, cards and lists.
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
