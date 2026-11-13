@@ -319,3 +319,58 @@ a:hover { color: var(--cardinal); }
 @media (max-width: 800px) { .note-form { grid-template-columns: 1fr; } .note-form > * { grid-column: 1; } .note-fields { grid-template-columns: 1fr; } }
 .note-fields .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .note-form.sent .note-intro { font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
+
+/* ---- More breathing room (2026-11-12) ---- */
+:root { --pad: clamp(24px, 6.5vw, 120px); }
+body { line-height: 1.7; }
+.topbar { padding-top: 22px; padding-bottom: 22px; }
+.hero-text { padding-top: 9vh; padding-bottom: 7vh; }
+.section-head { padding: 20vh 0 6vh; }
+.page-intro { margin: 10vh 0 7vh 168px; max-width: 42ch; }
+.row { padding: 64px 0; gap: 48px; }
+.with-rail { gap: 72px; }
+.with-rail .row { gap: 36px; }
+.rail ol { margin-top: 64px; }
+.rail li { padding: 16px 0 18px; }
+h3 { margin-bottom: 18px; }
+.row-main p, .card p { margin-bottom: 24px; line-height: 1.75; }
+.links { margin-bottom: 22px; gap: 24px; }
+.tags { gap: 8px; }
+.cards { gap: 14vh 64px; padding: 10vh 0 20vh; }
+.card-art-wrap { margin-bottom: 26px; }
+.card-meta { margin-bottom: 20px; padding-bottom: 14px; }
+.about { padding-top: 22vh; padding-bottom: 22vh; }
+.about-grid { gap: 9vw; margin-top: 8vh; }
+.now li { padding: 20px 0; }
+.contact { padding-bottom: 20vh; }
+.contact-list { margin-top: 4vh; }
+.contact-list div { padding: 34px 0; }
+.label.sub { margin-top: 140px; padding-bottom: 20px; }
+.coursework li { padding: 26px 0; }
+.cv-entry { padding: 56px 0; gap: 48px; }
+.cv-entry h3 { margin-bottom: 8px; }
+.cv-entry .role { margin-bottom: 20px; }
+.cv-entry li { margin-bottom: 12px; line-height: 1.7; }
+.skills { padding: 56px 0; gap: 22px 48px; }
+.resume-actions { margin: 0 0 6vh 168px; }
+.note-form { padding: 10vh 0 6vh; column-gap: 48px; }
+.note-intro { margin-bottom: 7vh; }
+.note-fields { gap: 44px 64px; }
+.note-actions { margin-top: 52px; }
+.next { padding: 64px var(--pad); }
+footer { padding: 30px var(--pad); }
+@media (max-width: 800px) {
+  .section-head { padding: 14vh 0 4vh; }
+  .page-intro, .resume-actions { margin-left: 0; }
+  .row { padding: 44px 0; gap: 20px; }
+  .cv-entry { padding: 40px 0; gap: 10px; }
+  .about { padding-top: 14vh; padding-bottom: 14vh; }
+  .label.sub { margin-top: 90px; }
+}
+body { font-size: 17px; }
+.row-main p, .card p, .cv-entry ul, .note-intro { max-width: 62ch; }
+.doors { gap: 16px; padding: 0 var(--pad); }
+.door-label { padding: 36px clamp(32px, 5vw, 88px) 44px; }
+.door-label h2 { margin-top: 14px; }
+.hero { border-bottom: 0; }
+.about { border-top: 1px solid var(--line); }
