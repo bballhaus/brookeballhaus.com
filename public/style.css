@@ -401,3 +401,6 @@ h3 { font-size: clamp(1.5rem, 2.1vw, 2rem); }
 .coursework li { font-size: 1.35rem; }
 .note-form { grid-template-columns: 140px 1fr; }
 @media (max-width: 800px) { .page-intro, .resume-actions { margin-left: 0; } .section-head, .contact-list div { grid-template-columns: 60px 1fr; } .note-form { grid-template-columns: 1fr; } }
+.contact-list dd { font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.4; }
+.contact-list div { padding: 22px 0; align-items: center; }
+.note-fields input, .note-fields textarea { font-size: 1.15rem; }
