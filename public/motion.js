@@ -214,3 +214,38 @@
   addEventListener('resize', update);
   update();
 })();
+
+// Rox-style ruled column: two inner rules for the page, tiny corner squares where they meet each band.
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rules = document.createElement('div');
+  rules.className = 'rules'; rules.setAttribute('aria-hidden', 'true');
+  document.body.prepend(rules);
+  const hero = document.querySelector('.hero');
+  if (hero) { const band = document.createElement('div'); band.className = 'heroband'; hero.before(band); band.append(hero); }
+  const bands = [...document.querySelectorAll('.heroband, .doors, .section, .next')];
+  const cells = [...document.querySelectorAll('.door, .cards .card')];
+  let sqs = [];
+  const sq = (x, y, cls) => { const e = document.createElement('i'); e.className = 'sq' + (cls ? ' ' + cls : ''); e.style.left = x + 'px'; e.style.top = y + 'px'; rules.append(e); sqs.push(e); };
+  const place = () => {
+    sqs.forEach(e => e.remove()); sqs = [];
+    const top = document.body.getBoundingClientRect().top;
+    const W = document.documentElement.clientWidth;
+    const cs = getComputedStyle(document.querySelector('.section, .topbar'));
+    const L = parseFloat(cs.paddingLeft), R = W - parseFloat(cs.paddingRight);
+    let k = 0;
+    bands.forEach(b => {
+      const r = b.getBoundingClientRect(), y0 = r.top - top, y1 = r.bottom - top;
+      [[L + 8, y0 + 8], [R - 11, y0 + 8], [L + 8, y1 - 11], [R - 11, y1 - 11]].forEach(([x, y]) => sq(x, y, (k++ % 11 === 3) ? 'red' : ''));
+    });
+    cells.forEach(c => {
+      const r = c.getBoundingClientRect(), y0 = r.top - top, y1 = r.bottom - top;
+      [[r.left + 8, y0 + 8], [r.right - 11, y0 + 8], [r.left + 8, y1 - 11], [r.right - 11, y1 - 11]].forEach(([x, y]) => { if (x > L + 12 && x < R - 14) sq(x, y, (k++ % 13 === 6) ? 'blue' : ''); });
+    });
+    if (reduce) sqs.forEach(e => e.classList.add('on'));
+    else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }); sqs.forEach((e, i) => { e.style.transitionDelay = (i % 4) * 60 + 'ms'; io.observe(e); }); }
+  };
+  addEventListener('load', place);
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(place, 150); });
+  place();
+})();
