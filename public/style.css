@@ -404,3 +404,40 @@ h3 { font-size: clamp(1.5rem, 2.1vw, 2rem); }
 .contact-list dd { font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.4; }
 .contact-list div { padding: 22px 0; align-items: center; }
 .note-fields input, .note-fields textarea { font-size: 1.15rem; }
+
+/* ---- Ruled frame, after rox.com (2026-11-13) ---- */
+:root { --edge: max(var(--pad), calc((100vw - 1120px) / 2)); --out: clamp(10px, 1.5vw, 26px); --hair: 1px; }
+@media (min-resolution: 2dppx) { :root { --hair: .5px; } }
+body { position: relative; z-index: 0; }
+.rails { position: absolute; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+.rl { position: absolute; top: 0; height: 100%; width: var(--hair); background: #cfc7b8; transform-origin: top; transform: scaleY(var(--draw, 1)); }
+.rl.ol { left: var(--out); } .rl.il { left: var(--edge); } .rl.ir { right: var(--edge); }
+.tick { position: absolute; width: 11px; height: 11px; margin: -5px 0 0 -5px; pointer-events: none; transform: scale(0) rotate(-90deg); transition: transform .7s cubic-bezier(.2,.7,.2,1), opacity .5s; opacity: 0; }
+.tick::before, .tick::after { content: ""; position: absolute; background: var(--cardinal); }
+.tick::before { left: 5px; top: 0; width: 1px; height: 11px; }
+.tick::after { top: 5px; left: 0; height: 1px; width: 11px; }
+.tick.on { transform: none; opacity: .8; }
+/* the right outer rail doubles as the reading-progress line */
+.progress { right: var(--out); width: var(--hair); background: transparent; }
+.progress span { width: 1px; }
+/* content snaps to the inner rails */
+.topbar, .hero-text { padding-left: var(--edge); }
+.topbar { padding-right: var(--edge); }
+.doors { padding-left: var(--edge); padding-right: var(--edge); }
+/* hairlines everywhere */
+.section, .about, .topbar, .row, .contact-list div, .card-meta, .coursework li, .cv-entry, .now li, .door, .doors { border-color: #d9d2c4; }
+.section, .row, .contact-list div, .card-meta, .coursework li, .cv-entry, .now li, .topbar { border-bottom-width: var(--hair); }
+.tags li { border-radius: 5px; border-width: var(--hair); }
+/* double borders: an inner hairline on the box, a second one that steps out when it scrolls in */
+.thumb-wrap, .card-art-wrap { border: var(--hair) solid #cfc7b8; outline: var(--hair) solid transparent; outline-offset: 0; transition: outline-offset .9s cubic-bezier(.2,.7,.2,1), outline-color .6s; }
+.thumb-wrap.framed, .card-art-wrap.framed { outline-color: #cfc7b8; outline-offset: 7px; }
+.thumb-wrap, .card-art-wrap { margin: 8px; }
+.door { border: var(--hair) solid #cfc7b8; }
+.door::after { content: ""; position: absolute; inset: 0; z-index: 2; border: 1px solid rgba(247,245,240,0); pointer-events: none; transition: inset 1s cubic-bezier(.2,.7,.2,1), border-color .6s; }
+.door.framed::after { inset: 10px; border-color: rgba(247,245,240,.85); }
+.door-art { gap: 1px; background: #cfc7b8; }
+@media (max-width: 800px) {
+  .rl.ol { display: none; }
+  .progress { right: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .tick { transition: none; } .thumb-wrap, .card-art-wrap, .door::after { transition: none; } }

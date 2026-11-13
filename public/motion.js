@@ -214,3 +214,54 @@
   addEventListener('resize', update);
   update();
 })();
+
+// Ruled frame (after rox.com): two hairline rails down each side, plus marks where the inner rails cross each section.
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rails = document.createElement('div');
+  rails.className = 'rails'; rails.setAttribute('aria-hidden', 'true');
+  rails.innerHTML = '<span class="rl ol"></span><span class="rl il"></span><span class="rl ir"></span>';
+  document.body.prepend(rails);
+
+  const bounds = [...document.querySelectorAll('.hero, .doors, .section, .next, footer')];
+  let ticks = [];
+  const placeTicks = () => {
+    ticks.forEach(t => t.el.remove());
+    const edge = rails.querySelector('.il').offsetLeft, right = rails.querySelector('.ir').offsetLeft;
+    const bodyTop = document.body.getBoundingClientRect().top;
+    ticks = [];
+    bounds.forEach((b, i) => {
+      if (i === 0 && b.getBoundingClientRect().top - bodyTop < 120) return;   // skip the very top of the page
+      const y = b.getBoundingClientRect().top - bodyTop;
+      [edge, right].forEach(x => {
+        const el = document.createElement('i');
+        el.className = 'tick'; el.style.left = x + 'px'; el.style.top = y + 'px';
+        rails.append(el); ticks.push({ el, y });
+      });
+    });
+    if (reduce) ticks.forEach(t => t.el.classList.add('on'));
+  };
+
+  const frames = [...document.querySelectorAll('.thumb-wrap, .card-art-wrap, .door')];
+  if (reduce) frames.forEach(f => f.classList.add('framed'));
+  else {
+    const fio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('framed'); fio.unobserve(e.target); } }), { threshold: .3 });
+    frames.forEach(f => fio.observe(f));
+  }
+
+  // Rails draw themselves down the page just ahead of the reader; the marks pop in as the line reaches them.
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const H = innerHeight, D = document.documentElement.scrollHeight, y = scrollY;
+    const p = Math.min(1, y / Math.max(1, D - H));
+    const end = reduce ? D : y + H * (.72 + .28 * p);
+    rails.style.setProperty('--draw', Math.min(1, end / D));
+    ticks.forEach(t => t.el.classList.toggle('on', t.y < end));
+  };
+  const relayout = () => { placeTicks(); update(); };
+  addEventListener('load', relayout);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(relayout, 150); });
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  relayout();
+})();
