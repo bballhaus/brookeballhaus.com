@@ -17,7 +17,13 @@ export default {
 
     // Only accept posts from the site itself.
     const origin = request.headers.get("origin") || "";
-    if (origin && !/^https:\/\/(www\.)?brookeballhaus\.com$/.test(origin)) return json({ ok: false, error: "origin" }, 403);
+    if (!/^https:\/\/(www\.)?brookeballhaus\.com$/.test(origin) && !/^http:\/\/(127\.0\.0\.1|localhost):\d+$/.test(origin)) return json({ ok: false, error: "origin" }, 403);
+
+    // At most a few notes per minute from one address.
+    if (env.NOTE_LIMIT) {
+      const { success } = await env.NOTE_LIMIT.limit({ key: request.headers.get("cf-connecting-ip") || "anon" });
+      if (!success) return json({ ok: false, error: "slow down" }, 429);
+    }
 
     let data;
     try { data = await request.json(); } catch { return json({ ok: false, error: "bad request" }, 400); }
@@ -33,11 +39,12 @@ export default {
 
     const subject = `Note from ${name} via brookeballhaus.com`;
     const b64 = s => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
+    const word = s => /^[\x20-\x7e]*$/.test(s) ? `"${s.replace(/["\\]/g, "")}"` : `=?UTF-8?B?${b64(s)}?=`;
     const body = `${message}\n\n--\n${name}\n${email}\nSent from the note form on brookeballhaus.com\n`;
     const raw = [
       `From: "brookeballhaus.com" <${FROM}>`,
       `To: <${TO}>`,
-      `Reply-To: "${name.replace(/"/g, "")}" <${email}>`,
+      `Reply-To: ${word(name)} <${email}>`,
       `Subject: =?UTF-8?B?${b64(subject)}?=`,
       `Message-ID: <${crypto.randomUUID()}@brookeballhaus.com>`,
       `Date: ${new Date().toUTCString()}`,
