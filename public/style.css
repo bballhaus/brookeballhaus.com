@@ -374,3 +374,12 @@ body { font-size: 17px; }
 .door-label h2 { margin-top: 14px; }
 .hero { border-bottom: 0; }
 .about { border-top: 1px solid var(--line); }
+.row-main p, .card p, .cv-entry li, .now li { font-size: 1.05rem; }
+@media (max-width: 800px) {
+  .cards { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+}
+@media (max-width: 480px) {
+  .topbar { grid-template-columns: 1fr; justify-items: center; gap: 8px; padding-top: 14px; padding-bottom: 14px; }
+  .topbar > .muted { display: none; }
+  .topbar nav { gap: 14px; font-size: .78rem; letter-spacing: .02em; }
+}
