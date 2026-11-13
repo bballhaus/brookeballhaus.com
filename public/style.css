@@ -317,3 +317,5 @@ a:hover { color: var(--cardinal); }
 .note-actions .btn:hover { background: var(--cardinal); border-color: var(--cardinal); color: var(--bg); }
 .note-status { margin: 0; }
 @media (max-width: 800px) { .note-form { grid-template-columns: 1fr; } .note-form > * { grid-column: 1; } .note-fields { grid-template-columns: 1fr; } }
+.note-fields .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.note-form.sent .note-intro { font-size: clamp(1.5rem, 2.4vw, 2.1rem); }

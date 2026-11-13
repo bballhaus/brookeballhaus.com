@@ -1,4 +1,5 @@
 name = "brookeballhaus"
+main = "src/worker.js"
 compatibility_date = "2026-11-01"
 
 routes = [
@@ -8,3 +9,10 @@ routes = [
 
 [assets]
 directory = "./public"
+binding = "ASSETS"
+
+# "Drop me a note" emails. Requires Email Routing on brookeballhaus.com with
+# ballhaus@stanford.edu added and verified as a destination address.
+[[send_email]]
+name = "NOTES"
+destination_address = "ballhaus@stanford.edu"
