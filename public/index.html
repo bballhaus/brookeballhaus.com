@@ -89,11 +89,12 @@
       <div class="note-fields">
         <label><span class="mono muted">Your name</span><input name="name" type="text" autocomplete="name" required></label>
         <label><span class="mono muted">Your email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
         <label class="wide"><span class="mono muted">Note</span><textarea name="message" rows="5" required placeholder="Hi Brooke,"></textarea></label>
       </div>
       <div class="note-actions">
         <button class="btn" type="submit">Send note <span class="arrow">→</span></button>
-        <p class="mono muted small note-status" aria-live="polite">Opens in your email app, addressed to ballhaus@stanford.edu</p>
+        <p class="mono muted small note-status" aria-live="polite">Goes straight to my inbox</p>
       </div>
     </form>
   </section>

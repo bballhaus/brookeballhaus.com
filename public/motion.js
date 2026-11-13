@@ -5,16 +5,33 @@
   // Deep links (e.g. /#note) land on their section even after layout settles.
   if (location.hash) addEventListener('load', () => setTimeout(() => document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({ behavior: 'instant' }), 60));
 
-  // "Drop me a note": compose a clean email in the visitor's mail app.
-  document.querySelectorAll('.note-form').forEach(f => f.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!f.reportValidity()) return;
-    const v = n => f.elements[n].value.trim();
-    const subject = `Note from ${v('name')} via brookeballhaus.com`;
-    const body = `${v('message')}\n\n${v('name')}\n${v('email')}`;
-    location.href = `mailto:ballhaus@stanford.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const st = f.querySelector('.note-status'); if (st) st.textContent = 'Your email app should open with the note ready to send.';
-  }));
+  // "Drop me a note": send through /api/note; if that fails, fall back to the visitor's mail app.
+  document.querySelectorAll('.note-form').forEach(f => {
+    const opened = Date.now();
+    const st = f.querySelector('.note-status'), btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!f.reportValidity()) return;
+      const v = n => f.elements[n].value.trim();
+      const mailto = () => { location.href = `mailto:ballhaus@stanford.edu?subject=${encodeURIComponent(`Note from ${v('name')} via brookeballhaus.com`)}&body=${encodeURIComponent(`${v('message')}\n\n${v('name')}\n${v('email')}`)}`; };
+      btn.disabled = true; st.textContent = 'Sending…';
+      try {
+        const r = await fetch('/api/note', { method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ name: v('name'), email: v('email'), message: v('message'), website: f.elements.website.value, elapsed: Date.now() - opened }) });
+        const out = await r.json().catch(() => ({}));
+        if (!r.ok || !out.ok) throw new Error(out.error || r.status);
+        const first = v('name').split(' ')[0] || 'friend';
+        f.classList.add('sent');
+        f.querySelector('.note-fields').remove(); btn.remove();
+        st.textContent = '';
+        f.querySelector('.note-intro').innerHTML = `Thanks, ${first}. Your note is on its way to my inbox.`;
+      } catch (_) {
+        btn.disabled = false;
+        st.textContent = "Couldn't send from here, so your email app will open with the note ready instead.";
+        setTimeout(mailto, 900);
+      }
+    });
+  });
 
   // 1. Fade-up reveals for rows, cards and lists.
   const io = new IntersectionObserver(es => es.forEach(e => {
