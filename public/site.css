@@ -80,3 +80,10 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .transcript th{text-align:left;font-weight:normal;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted);border-bottom:1px solid #bbb;padding:6px 8px}
 .transcript td{padding:7px 8px;border-bottom:1px dotted #ccc;vertical-align:top}
 .transcript td:first-child{white-space:nowrap;width:120px}
+.tx-term{display:flex;justify-content:space-between;align-items:baseline;margin:22px 0 4px}
+.tx-term h3{font:15px var(--type);text-transform:uppercase;letter-spacing:.1em;text-align:center;flex:1}
+.tx-note{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.transcript td:first-child{width:110px}.transcript .subj{display:inline-block;width:56px}
+.transcript td:nth-child(2){width:56px;color:var(--muted)}
+.transcript .u{text-align:right;width:64px}
+.transcript .instr{display:block;font-size:13px;color:var(--muted);margin-top:2px}
