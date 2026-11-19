@@ -173,3 +173,6 @@ body{text-transform:uppercase;letter-spacing:.12em}
 @media(max-width:700px){.tpath ol{grid-template-columns:1fr;gap:26px}.tpath ol:before{left:11px;right:auto;top:12px;bottom:12px;border-top:none;border-left:3px dashed var(--accent)}.tpath li{text-align:left;padding-left:42px}.tpath .dot{position:absolute;left:0;top:0;margin:0}}
 @media(prefers-reduced-motion:reduce){.tpath .next .dot{animation:none}}
 @media(max-width:700px){.tpath ol:before{bottom:auto;height:calc(100% - 60px)}}
+.race-pols{margin-top:30px}
+.race-pols .pol{transform:rotate(var(--r));padding:10px 10px 38px}
+.race-pols .pol figcaption{bottom:10px}
