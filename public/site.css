@@ -140,3 +140,4 @@ body{text-transform:uppercase;letter-spacing:.12em}
 @media(max-width:800px){.ihsa-pols{grid-template-columns:repeat(2,1fr)}}
 .ihsa-pols .pol{transform:rotate(var(--r))}
 .ihsa-pols .pol:nth-child(1) img{object-position:62% 50%}.ihsa-pols .pol:nth-child(2) img{object-position:35% 50%}
+.ihsa-title{font:400 clamp(24px,2.4vw,36px)/1.15 var(--serif);letter-spacing:.04em;margin:0 0 16px;max-width:900px}
