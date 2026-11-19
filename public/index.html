@@ -1,117 +1,283 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brooke Ballhaus</title>
-  <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Brooke Ballhaus">
-  <meta property="og:title" content="Brooke Ballhaus">
-  <meta property="og:description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
-  <meta property="og:url" content="https://brookeballhaus.com/">
-  <meta property="og:image" content="https://brookeballhaus.com/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Brooke Ballhaus on the Main Quad at Stanford">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#8c1515">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="topbar">
-    <a href="index.html" class="mono">Brooke Ballhaus</a>
-    <nav class="mono"><a href="research.html">Academia</a><a href="products.html">Products</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav>
-    <span class="mono muted">Stanford, CA</span>
-  </header>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Brooke Ballhaus</title>
+<meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Product, academia, showjumping, polo, triathlon and more.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Brooke Ballhaus"><meta property="og:title" content="Brooke Ballhaus">
+<meta property="og:url" content="https://brookeballhaus.com/"><meta property="og:image" content="https://brookeballhaus.com/og-image.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#1f2a44">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;800&family=Bodoni+Moda:ital,wght@1,500&family=Space+Grotesk:wght@700&family=DM+Serif+Display&family=Syne:wght@800&family=Caveat:wght@500&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--cream:#ffffff;--ink:#1a1a1a;--accent:#1f2a44;--serif:"Times New Roman",Times,serif}
+body{background:var(--cream);color:var(--ink);font:16px/1.6 var(--serif);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.top{position:fixed;inset:0 0 auto;display:flex;justify-content:space-between;padding:22px 40px;z-index:30;opacity:0;transition:opacity .4s;pointer-events:none}
+.top.on{opacity:1;pointer-events:auto}.top nav{display:flex;gap:28px}
+.serif{font-family:var(--serif);font-weight:400}
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="mono muted label">(00) — Computer Science · AI</p>
-      <div class="chips" aria-hidden="true"><span class="chip c1">Clinical NLP</span><span class="chip c2">Multi-agent RL</span><span class="chip c3">Interpretability</span><span class="chip c4">Product</span></div>
-      <h1><span class="h1a" data-speed="-0.12">Brooke</span><br><em class="h1b" data-speed="0.18">Ballhaus</em></h1>
-      <div class="hero-foot">
-        <p class="lede">BS/MS student at Stanford building AI systems that are technically rigorous and grounded in <span class="mk" data-mk="o"><em>human-centered</em></span> design.</p>
-        <p class="mono muted small">Scroll ↓</p>
-        <p class="typed-line mono small">Currently <span class="typed" data-phrases="teaching CS107 lab sections|building Rooted with Team Geckos|building Prose.ai|finishing an MS in AI at Stanford"></span><span class="caret"></span></p>
-      </div>
-    </div>
-    <figure class="hero-photo">
-      <img class="settle" src="portrait.jpg" alt="Brooke Ballhaus on the Stanford Main Quad">
-      <figcaption class="mono muted small">Main Quad, Stanford</figcaption>
-    </figure>
-  </section>
+/* 1. intro */
+.stage{height:210vh;position:relative}
+.intro{height:100vh;position:sticky;top:0;display:grid;place-items:center;overflow:hidden;background:#fff;color:#000}
+.intro.inv{background:#000;color:#fff}
+.name{width:max-content;font-family:var(--serif);font-weight:400;font-size:13.5vw;line-height:1;letter-spacing:-.03em;white-space:nowrap;user-select:none}
+.name .ch{display:inline-block;will-change:transform;white-space:pre}
+.hint{position:absolute;bottom:28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:0;transition:opacity .8s}.hint.on{opacity:.6}
 
-  <section class="about section">
-    <p class="mono muted label">(01) — About</p>
-    <div class="about-grid">
-      <p class="about-text words">I'm an AI engineer building systems that separate what should be automated from what is <span class="mk" data-mk="o"><em>uniquely human</em></span>, empowering people to use AI and focus on what <span class="mk" data-mk="u2"><em>only they</em></span> can do.</p>
-      <div class="now reveal">
-        <p class="mono muted">Now</p>
-        <ul>
-          <li><span class="mono muted">01</span><span>Teaching <span class="mk" data-mk="u">CS107</span> lab sections at Stanford: C, memory and debugging</span></li>
-          <li><span class="mono muted">02</span><span>Building <a href="https://rooted-stanford.vercel.app/">Rooted</a>, an AI decision partner for PMs, with Team Geckos</span></li>
-          <li><span class="mono muted">03</span><span>Building Prose.ai, a website builder where plain-English specs compile into tested code</span></li>
-          <li><span class="mono muted">04</span><span>MS in Computer Science (AI) at Stanford, class of 2027</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+/* 2. polaroids */
+.reel{height:640vh;position:relative}
+.reel-pin{position:sticky;top:0;height:100vh;overflow:hidden}
+.pol{position:absolute;left:50%;top:38%;width:min(19vw,270px);background:#fff;padding:12px 12px 46px;box-shadow:0 18px 40px rgba(26,26,26,.18),0 2px 6px rgba(26,26,26,.08);opacity:0;will-change:transform}
+.pol img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.pol figcaption{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:"Special Elite","Courier New",monospace;font-size:15px;color:#333}
+.word{position:absolute;top:70%;left:50%;font-family:var(--serif);font-size:clamp(44px,5.4vw,88px);line-height:1;letter-spacing:-.02em;white-space:nowrap;opacity:0;will-change:transform}
+.word.more{font-style:italic}
+.word.more{opacity:1;font-style:italic;font-size:clamp(34px,3.6vw,58px)}
+.mw{display:inline-block;opacity:0;will-change:transform}
+.spol{cursor:pointer;transition:box-shadow .3s}
+.spol:hover{box-shadow:0 28px 60px rgba(26,26,26,.28)}
 
-  <section class="doors">
-    <a class="door" href="research.html">
-      <div class="door-art"><span class="cell"><img class="tile photo" src="img/research-showjumping.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.04"></span><span class="cell"><img class="tile photo" src="img/research-pandemic.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.07"></span><span class="cell"><img class="tile photo" src="img/research-cot.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.1"></span><span class="cell"><img class="tile photo" src="img/research-cycles.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.04"></span><span class="cell"><img class="tile photo" src="img/research-astar.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.07"></span><span class="cell"><img class="tile photo" src="img/research-showjumping.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.1"></span></div>
-      <div class="door-label"><span class="mono">(02) · 06 projects</span><h2>Academia <span class="arrow">→</span></h2></div>
-    </a>
-    <a class="door" href="products.html">
-      <div class="door-art"><span class="cell"><img class="tile photo" src="img/product-civitas.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.04"></span><span class="cell"><img class="tile photo" src="img/product-rooted.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.07"></span><span class="cell"><img class="tile photo" src="img/product-bookclubb.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.1"></span><span class="cell"><img class="tile photo" src="img/product-saipiens.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.04"></span><span class="cell"><img class="tile photo" src="img/product-reellife.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="0.07"></span><span class="cell"><img class="tile photo" src="img/product-rooted.jpg" alt="" width="1200" height="900" loading="lazy" data-drift="-0.1"></span></div>
-      <div class="door-label"><span class="mono">(03) · 05 builds</span><h2>Products <span class="arrow">→</span></h2></div>
-    </a>
-  </section>
+/* 3. note */
+.notes{height:420vh;position:relative}
+.notes-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1400px}
+.notes h2{position:absolute;top:9vh;left:0;right:0;text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,96px);line-height:1}
+.notes h2 em{color:var(--accent)}
+.mail{position:relative;width:min(560px,86vw);height:340px;margin-top:20vh}
+.paper{position:absolute;left:0;right:0;bottom:0;margin:auto;height:330px;background:#fffdf8;border-radius:6px;box-shadow:0 18px 40px rgba(26,26,26,.15);padding:26px 30px;z-index:3;transform-origin:50% 100%;
+ background-image:repeating-linear-gradient(#fffdf8 0 31px,#e9e2d3 31px 32px);background-position:0 18px}
+.paper label{display:block;font:13px "Special Elite","Courier New",monospace;color:#777;text-transform:uppercase;letter-spacing:.06em}
+.paper input,.paper textarea{width:100%;border:0;background:transparent;font:17px/32px "Special Elite","Courier New",monospace;color:var(--ink);outline:none;resize:none}
+.paper .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.paper .hp{position:absolute;left:-9999px}
+.env{position:absolute;left:50%;bottom:-6px;width:min(600px,92vw);height:300px;transform:translateX(-50%);z-index:4;opacity:0}
+.env .back{position:absolute;inset:0;background:#e7d9bf;border-radius:6px;z-index:-1}
+.env .front{position:absolute;inset:0;background:linear-gradient(to top right,#ddcdad 50%,transparent 50.2%) left/50.1% 100% no-repeat,linear-gradient(to top left,#e2d3b5 50%,transparent 50.2%) right/50.1% 100% no-repeat;border-radius:6px;z-index:5}
+.env .bottom{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top,#d9c8a6,#e0d0b0);clip-path:polygon(0 100%,100% 100%,100% 30%,50% 0,0 30%);border-radius:0 0 6px 6px;z-index:6}
+.env .flap{position:absolute;left:0;right:0;top:0;height:56%;background:#d3c19c;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;z-index:7}
+.env .stamp{position:absolute;right:22px;top:20px;width:56px;height:66px;background:var(--accent);border:4px dotted #fff;outline:2px solid var(--accent);color:#fff;font:italic 15px var(--serif);display:grid;place-items:center;z-index:8;opacity:0}
+.env .sent{position:absolute;left:28px;bottom:26px;z-index:8;font:16px "Special Elite",monospace;color:#5a4a2c;opacity:0}
+.status{position:absolute;bottom:7vh;left:0;right:0;text-align:center;font-family:var(--serif);font-size:19px;color:#666}
 
-  <section id="contact" class="section contact">
-    <header class="section-head">
-      <p class="mono muted label">(04)</p>
-      <h2>Say <em>hello</em></h2>
-    </header>
-    <dl class="contact-list reveal">
-      <div><dt class="mono">GitHub</dt><dd><a href="https://github.com/bballhaus">github.com/bballhaus <span class="arrow">↗</span></a></dd></div>
-      <div><dt class="mono">Email</dt><dd><a href="mailto:ballhaus@stanford.edu">ballhaus@stanford.edu <span class="arrow">↗</span></a></dd></div>
-      <div><dt class="mono">Note</dt><dd><a href="#note">Drop me a note <span class="arrow">↓</span></a></dd></div>
-      <div><dt class="mono">LinkedIn</dt><dd><a href="https://www.linkedin.com/in/brooke-ballhaus">linkedin.com/in/brooke-ballhaus <span class="arrow">↗</span></a></dd></div>
-    </dl>
-  </section>
+/* 4. boring contacts */
+.boring{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:12vh 8vw}
+.boring h3{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(34px,4vw,60px);margin-bottom:6vh;color:#555}
+.boring ul{list-style:none;padding:0;max-width:760px}
+.boring li a{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);transition:padding .25s,color .25s}
+.boring li a span{font:15px var(--serif);color:#777}
+.boring li a:hover{padding-left:14px;color:var(--accent)}
+footer{padding:30px 8vw;color:#888;font-size:13px;display:flex;justify-content:space-between}
+.switch{position:fixed;right:16px;bottom:16px;z-index:40;background:#fff;color:#000;border:1px solid #000;padding:8px 12px;font-size:12px;cursor:pointer}
 
-  <section id="note" class="section note">
-    <header class="section-head">
-      <p class="mono muted label">(05)</p>
-      <h2>Drop me a <em>note</em></h2>
-    </header>
-    <form class="note-form reveal" action="mailto:ballhaus@stanford.edu" method="post" enctype="text/plain">
-      <p class="note-intro">Questions about my research, a project you're building, or a role you think I'd be a good fit for. I'd love to hear from you.</p>
-      <div class="note-fields">
-        <label><span class="mono muted">Your name</span><input name="name" type="text" autocomplete="name" required></label>
-        <label><span class="mono muted">Your email</span><input name="email" type="email" autocomplete="email" required></label>
-        <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-        <label class="wide"><span class="mono muted">Note</span><textarea name="message" rows="5" required placeholder="Hi Brooke,"></textarea></label>
-      </div>
-      <div class="note-actions">
-        <button class="btn" type="submit">Send note <span class="arrow">→</span></button>
-        <p class="mono muted small note-status" aria-live="polite">Goes straight to my inbox</p>
-      </div>
-    </form>
-  </section>
+/* empty note poof */
+.puff{position:absolute;left:50%;top:50%;width:90px;height:90px;margin:-45px;border-radius:50%;background:#fff;opacity:0;z-index:6;filter:blur(2px);box-shadow:0 0 30px rgba(255,255,255,.9)}
+.sad{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:7;opacity:0;text-align:center}
+.sad svg{width:120px;height:120px}
+.sad p{font:26px Caveat,cursive;color:#555;margin-top:6px}
 
-  <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
+/* the singularity: the contacts page twists and gets pulled into a single point, then black, then white text */
+.sing{height:470vh;position:relative;background:#000}
+.sing-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;background:#000}
+.page{position:absolute;inset:0;background:#fff;z-index:2}
+.page .boring{height:100vh;min-height:0}
+.lastfoot{position:absolute;left:0;right:0;bottom:0}
+#drain{position:absolute;inset:0;width:100%;height:100%;z-index:3;display:none}
+.uhoh{position:absolute;z-index:5;max-width:760px;padding:0 6vw;text-align:center;color:#fff}
+.uhoh b{display:block;font:400 clamp(72px,10vw,150px)/1 var(--serif);margin-bottom:18px;opacity:0}
+.uhoh p{font:clamp(24px,2.6vw,38px)/1.25 var(--serif);opacity:0}
+.uhoh p em{font-style:italic}
+.uhoh a{display:inline-block;margin-top:34px;font:17px var(--serif);color:#fff;border:1px solid #fff;padding:9px 20px;border-radius:999px;opacity:0;transition:background .2s,color .2s}
+.uhoh a:hover{background:#fff;color:#000}
 
-  <div class="progress" aria-hidden="true"><span></span></div>
-  <script src="motion.js"></script>
-</body>
-</html>
+/* 2026-11-19: spaced capitals everywhere (typewriter bits stay as they are) */
+body{text-transform:uppercase;letter-spacing:.12em}
+.name,.word,.notes h2,.boring h3,.uhoh b{letter-spacing:.04em!important}
+.pol figcaption,.paper,.paper *,.env .sent,.env .stamp,.sad p{text-transform:none;letter-spacing:normal}
+.word{font-size:clamp(34px,4vw,66px)}
+.word.more{font-size:clamp(22px,2.2vw,38px)}
+.top{font-size:14px}.top a.serif{font-size:17px!important;white-space:nowrap}
+</style><style>
+</style>
+</head><body>
+<header class="top"><a class="serif" style="font-size:20px" href="index.html">Brooke Ballhaus</a><nav><a href="products.html">Product</a><a href="research.html">Academia</a><a href="showjumping.html">Showjumping</a><a href="polo.html">Polo</a><a href="triathlon.html">Triathlon</a><a href="thoughts.html">Thoughts</a><a href="resume.html">Resume</a><a href="#contact">Contact</a></nav></header>
+
+<div class="stage" id="stage"><div class="intro" id="intro"><h1 class="name" id="name" aria-label="Brooke Ballhaus">Brooke Ballhaus</h1><span class="hint" id="hint">Scroll</span></div></div>
+
+<div class="reel" id="reel"><div class="reel-pin">
+ <figure class="pol" data-x="-30" data-r="-6"><img src="img/polaroids/product.jpg" width="560" height="700" alt="Product photo"><figcaption></figcaption></figure>
+ <figure class="pol" data-x="0" data-r="3"><img src="img/polaroids/academia.jpg" width="560" height="700" alt="Brooke on the Main Quad at Stanford"><figcaption>Main Quad, Stanford</figcaption></figure>
+ <figure class="pol spol" data-x="30" data-r="-3" data-href="showjumping.html"><img src="img/polaroids/showjumping.jpg" width="560" height="700" alt="Brooke showjumping"><figcaption>Showjumping</figcaption></figure>
+ <figure class="pol spol" data-x="31" data-r="4" data-href="polo.html"><img src="img/polaroids/polo.jpg" width="560" height="700" alt="Brooke playing polo"><figcaption>Polo</figcaption></figure>
+ <figure class="pol spol" data-x="29" data-r="-7" data-href="triathlon.html"><img src="img/polaroids/triathlon.jpg" width="560" height="700" alt="Brooke with a triathlon medal"><figcaption>Triathlon</figcaption></figure>
+ <figure class="pol spol" data-x="30.5" data-r="2" data-href="thoughts.html"><img src="img/polaroids/thoughts.jpg" width="560" height="700" alt="Brooke with her horse"><figcaption>Thoughts</figcaption></figure>
+ <a class="word" data-x="-30" href="products.html">Product</a>
+ <a class="word" data-x="0" href="research.html">Academia</a>
+ <span class="word more" data-x="30" id="moreline"><span class="mw">And</span> <span class="mw">oh</span> <span class="mw">so</span> <span class="mw">much</span> <span class="mw">more</span></span>
+</div></div>
+
+<div class="notes" id="contact"><div class="notes-pin" id="npin">
+ <h2>Drop me a <em>note</em></h2>
+ <div class="mail" id="mail">
+  <form class="paper" id="paper" autocomplete="on">
+   <div class="row"><div><label for="nn">From</label><input id="nn" name="name" placeholder="your name" required></div><div><label for="ne">Reply to</label><input id="ne" name="email" type="email" placeholder="you@email.com" required></div></div>
+   <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+   <label for="nm" style="margin-top:8px">Note</label><textarea id="nm" name="message" rows="4" placeholder="Hi Brooke," required></textarea>
+  </form>
+  <div class="env" id="env"><div class="back"></div><div class="front"></div><div class="bottom"></div><div class="flap" id="flap"></div><div class="stamp" id="stamp">B.B.</div><div class="sent" id="sentlbl">to: Brooke's inbox</div></div>
+  <div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div>
+  <div class="sad" id="sad"><svg viewBox="0 0 120 120" fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"><path d="M60 8c30 1 52 22 51 53-1 30-23 51-53 50C28 110 8 88 9 58 10 29 31 7 60 8z"/><path d="M42 46v6M78 46v6"/><path d="M38 86c12-12 32-12 44 0"/><path d="M84 56c-2 5-3 9 0 11 3 1 5-2 3-6-1-2-2-3-3-5z" fill="#a9cbe3" stroke="#6f9fc4" stroke-width="2"/></svg><p>nothing to send...</p></div>
+ </div>
+ <p class="status" id="nstatus" hidden></p>
+</div></div>
+
+<div class="sing" id="sing"><div class="sing-pin">
+ <div class="page" id="lastpage"><section class="boring">
+ <h3>... or contact me the boring way</h3>
+ <ul>
+  <li><a href="mailto:ballhaus@stanford.edu">Email <span>ballhaus@stanford.edu ↗</span></a></li>
+  <li><a href="https://www.linkedin.com/in/brooke-ballhaus">LinkedIn <span>linkedin.com/in/brooke-ballhaus ↗</span></a></li>
+  <li><a href="https://github.com/bballhaus">GitHub <span>github.com/bballhaus ↗</span></a></li>
+  <li><a href="Brooke_Ballhaus_Resume.pdf">Resume <span>PDF ↗</span></a></li>
+ </ul>
+</section>
+<footer class="lastfoot"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
+ </div>
+ <canvas id="drain"></canvas>
+ <div class="uhoh" id="uhoh"><b>Uh oh!</b><p>You went too far and got sucked up into <em>The Singularity</em>.</p><a href="#" onclick="scrollTo({top:0});return false">Escape to the top ↑</a></div>
+</div></div>
+
+<script>
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=t=>1-Math.pow(1-t,3),seg=(p,a,b)=>clamp((p-a)/(b-a));
+const prog=el=>{const r=el.getBoundingClientRect();return clamp(-r.top/(el.offsetHeight-innerHeight))};
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* intro flash + font cycling */
+let fonts=true;
+const FONTS=['var(--serif)|400|normal|-.03em','"Instrument Serif",serif|400|normal|-.03em','Inter,sans-serif|800|normal|-.06em','"Bodoni Moda",serif|500|italic|-.03em','"Space Grotesk",sans-serif|700|normal|-.05em','"DM Serif Display",serif|400|normal|-.03em','Syne,sans-serif|800|normal|-.05em'];
+const intro=document.getElementById('intro'),name=document.getElementById('name'),hint=document.getElementById('hint');
+function setFont(i){const [f,w,s,l]=FONTS[i%FONTS.length].split('|');Object.assign(name.style,{fontFamily:f,fontWeight:w,fontStyle:s,letterSpacing:l,fontSize:''});
+ const max=innerWidth*.92,wd=name.getBoundingClientRect().width;if(wd>max)name.style.fontSize=(13.5*max/wd)+'vw'} // keep every font on screen
+let running=false,timer;
+let wasInv=false;function stopFlash(){wasInv=intro.classList.contains('inv');clearInterval(timer);running=false;intro.classList.remove('inv');setFont(0)}
+function flash(n){ // 400ms per state = 2.5 flashes/sec, under the 3/sec seizure-safety limit
+ if(still||running)return;running=true;let i=0;
+ timer=setInterval(()=>{intro.classList.toggle('inv');if(fonts)setFont(i+1);i++;if(i===8)hint.classList.add('on');if(n&&i>=n){stopFlash()}},400)}
+Promise.all(FONTS.map(x=>{const [f,w,st]=x.split('|');return document.fonts.load(`${st} ${w} 100px ${f}`).catch(()=>0)})).then(()=>setTimeout(()=>flash(0),300)); // load every font first, then loop until you scroll
+
+name.innerHTML=[...'Brooke Ballhaus'].map(c=>`<span class="ch" aria-hidden="true">${c}</span>`).join('');
+const chs=[...name.querySelectorAll('.ch')],mid=(chs.length-1)/2,stage=document.getElementById('stage');
+const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+function introScroll(){const p=prog(stage);if(p>0&&running)stopFlash();if(p===0&&!running&&!still&&document.fonts.status==='loaded')flash(0);
+ const t=Math.min(1,p/.9)**1.3*Math.PI/2;
+ chs.forEach((c,i)=>{const d=(i-mid)/mid;const x=d*65*Math.sin(t),y=-(95+Math.abs(d)*10)*(1-Math.cos(t))-35*Math.sin(t)*(1-Math.abs(d)*.6);
+  c.style.transform=`translate(${x}vw,${y}vh) rotate(${d*75*Math.sin(t)}deg)`});
+ const k=Math.min(1,p/.3);intro.style.background=p>0?`rgb(${mix(wasInv?[0,0,0]:[255,255,255],[255,255,255],k)})`:'';intro.style.color=p>0?`rgb(${mix(wasInv?[255,255,255]:[0,0,0],[26,26,26],k)})`:'';
+ hint.style.opacity=p>0?0:''}
+
+/* polaroids: photo i spins in during its quarter, its word slams right after */
+const reel=document.getElementById('reel'),pols=[...document.querySelectorAll('.pol')],words=[...document.querySelectorAll('.word')],topics=[...document.querySelectorAll('.topic')];
+const K=[[0,-95,-40,-900,.4],[.35,-62,30,-560,.6],[.7,-30,-10,-160,.92]];
+function path(t,fx,fr){if(t<=.35){const u=t/.35;return [-95+33*u,-40+70*u,-900+340*u,.4+.2*u]}if(t<=.7){const u=(t-.35)/.35;return [-62+32*u,30-40*u,-560+400*u,.6+.32*u]}
+ const u=(t-.7)/.3;return [-30+(fx+30)*u,-10+10*u,-160+(fr+160)*u,.92+.08*u]}
+function slam(el,t,base){const e=t<.7?t/.7:1,ov=t<.7?0:Math.sin((t-.7)/.3*Math.PI)*.06;el.style.opacity=t>0?1:0;el.style.transform=`${base} translateY(${(1-ease(e))*-55}vh) scale(${2.2-1.2*e-ov})`}
+const rowPols=pols.filter(x=>!x.classList.contains('spol')),stack=pols.filter(x=>x.classList.contains('spol'));
+const moreline=document.getElementById('moreline'),mws=[...moreline.querySelectorAll('.mw')];
+let spread=0,spreadTo=0,hovered=-1,landed=false,lastP=0;
+function place(pol,t,extra){const [x,y,r,s]=path(t,+pol.dataset.x,+pol.dataset.r);pol.style.opacity=t>0?1:0;
+ const e=extra||{dx:0,dy:0,dr:0,ds:0};pol.style.transform=`translate(-50%,-50%) translate(${x+e.dx}vw,${y+e.dy}vh) rotate(${r+e.dr}deg) scale(${s+e.ds})`}
+function slamWord(el,t){const e=t<.7?t/.7:1,ov=t<.7?0:Math.sin((t-.7)/.3*Math.PI)*.06;el.style.opacity=t>0?1:0;el.style.transform=`translateY(${(1-ease(e))*-55}vh) scale(${2.2-1.2*e-ov})`}
+function reelScroll(){const p=prog(reel);lastP=p;
+ rowPols.forEach((pol,i)=>{const a=i*.15;place(pol,ease(seg(p,a,a+.1)),{dx:0,dy:spread*6,dr:0,ds:-spread*.1});if(spread>.01)pol.style.opacity=1-spread*.92});
+ words.slice(0,2).forEach(w=>w.style.filter=`opacity(${1-spread*.92})`);
+ words.slice(0,2).forEach((w,i)=>{const a=i*.15+.105;slam(w,seg(p,a,a+.04),`translateX(calc(-50% + ${+w.dataset.x}vw))`)});
+ moreline.style.transform='translateX(calc(-50% + 30vw))';
+ // the topic stack: first card + "And", then three more land on top with "oh", "so", "much", then "more"
+ const starts=[.30,.45,.58,.71];
+ landed=true;
+ stack.forEach((pol,k)=>{const a=starts[k],t=ease(seg(p,a,a+.1));if(t<1)landed=false;pol.style.zIndex=10+(k===hovered&&spread>.05?10:k);
+  const n=stack.length,c=(k-(n-1)/2);const sp=spread;
+  place(pol,t,{dx:(c*21-30)*sp,dy:-Math.abs(c)*2*sp+(k===hovered?-4*sp:0),dr:(c*4-(+pol.dataset.r))*sp,ds:(k===hovered?.06:0)*sp})});
+ mws.forEach((w,k)=>{const a=k<4?starts[k]+.105:.84;slamWord(w,seg(p,a,a+.04))});
+ if(!landed){spreadTo=0}}
+// hover the pile to fan it out
+function inStack(x,y){return stack.some(pol=>{const r=pol.getBoundingClientRect();return x>r.left-20&&x<r.right+20&&y>r.top-20&&y<r.bottom+20})}
+addEventListener('mousemove',e=>{const inside=landed&&inStack(e.clientX,e.clientY);spreadTo=inside?1:0;
+ hovered=inside?stack.findIndex((pol,k)=>{const top=stack.slice().map((q,i)=>[q,i]).reverse();return false}):-1;
+ if(inside){let best=-1,bz=-1;stack.forEach((pol,k)=>{const r=pol.getBoundingClientRect();if(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom){const z=+pol.style.zIndex;if(z>bz){bz=z;best=k}}});hovered=best}});
+stack.forEach(pol=>pol.addEventListener('click',()=>{if(spread>.5)location.href=pol.dataset.href;else if(landed)spreadTo=1})); // tap to spread on phones
+(function tick(){const d=spreadTo-spread;if(Math.abs(d)>.002){spread+=d*.16;reelScroll()}requestAnimationFrame(tick)})();
+
+/* note: pops up, gets folded into an envelope, and ships */
+const notes=document.getElementById('contact'),paper=document.getElementById('paper'),env=document.getElementById('env'),flap=document.getElementById('flap'),stamp=document.getElementById('stamp'),sentlbl=document.getElementById('sentlbl'),mail=document.getElementById('mail'),nstatus=document.getElementById('nstatus');
+let sent=false,noteStart=Date.now();const puffs=[...document.querySelectorAll('.puff')],sad=document.getElementById('sad');
+function ready(){return paper.name.value.trim()&&/\S+@\S+\.\S+/.test(paper.email.value)&&paper.message.value.trim()}
+async function send(){if(sent||!ready())return;sent=true;nstatus.textContent='Sent! It\'s on its way to my inbox.';
+ if(location.hostname.endsWith('brookeballhaus.com')){try{const d=Object.fromEntries(new FormData(paper));d.elapsed=Date.now()-noteStart;const r=await fetch('/api/note',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0}catch(e){nstatus.hidden=false;nstatus.textContent='Hmm, that didn\'t go through. Email me at ballhaus@stanford.edu instead.';sent=false}}}
+function noteScroll(){const p=prog(notes);
+ const pop=ease(seg(p,0,.12));paper.style.opacity=pop;
+ const fly=seg(p,.78,1);
+ const lift=ease(seg(p,.42,.52)),drop=seg(p,.52,.6); // paper shrinks and lifts above the envelope, then slides down into it
+ env.style.opacity=seg(p,.36,.44);
+ paper.style.transform=`translateY(${(1-pop)*30-lift*230+ease(drop)*230}px) scale(${(.7+.3*pop)*(1-.45*lift)}) rotate(${(1-pop)*-8}deg)`;
+ paper.style.zIndex=drop>0?2:5;paper.style.visibility=drop>=1?'hidden':'visible';
+ env.style.transform=`translateX(-50%) translateY(${(1-seg(p,.36,.44))*120}px)`;
+ flap.style.transform=`rotateX(${180-180*ease(seg(p,.6,.68))}deg)`;flap.style.zIndex=seg(p,.6,.68)>0?9:1;
+ const st=seg(p,.68,.72);stamp.style.opacity=st;stamp.style.transform=`scale(${1.8-.8*st}) rotate(${8*st}deg)`;sentlbl.style.opacity=st;
+ if(st>=1)send();
+ // empty note: poof + sad face instead of the envelope
+ const empty=!sent&&!ready(),pf=empty?seg(p,.42,.5):0,sd=empty?seg(p,.48,.56):0;
+ if(empty){env.style.opacity=0;paper.style.zIndex=5;paper.style.visibility=pf>=1?'hidden':'visible';paper.style.opacity=1-pf;
+  paper.style.transform=`scale(${1+.25*pf}) rotate(${pf*6}deg)`;paper.style.filter=`blur(${pf*10}px)`}else paper.style.filter='';
+ puffs.forEach((pu,i)=>{const a=i/puffs.length*Math.PI*2,d=pf*(140+i%3*40),o=pf>0?Math.sin(pf*Math.PI):0;pu.style.opacity=o;pu.style.transform=`translate(${Math.cos(a)*d}px,${Math.sin(a)*d*.6}px) scale(${.4+pf*1.6})`});
+ sad.style.opacity=sd;sad.style.transform=`translate(-50%,-50%) scale(${.6+.4*ease(sd)}) rotate(${(1-sd)*-10}deg)`;
+ const f=empty?0:ease(fly);mail.style.transform=`translate(${f*75}vw,${-f*70}vh) rotate(${f*-18}deg) scale(${1-.5*f})`;
+ if(p<.4&&!sent)nstatus.textContent=ready()?'Looks good. Keep scrolling to send it.':'Write a note, then keep scrolling to send it.';
+ if(empty&&p>=.42)nstatus.textContent='Empty notes just go poof. Scroll back up and write me something!'}
+paper.addEventListener('input',noteScroll);
+
+
+const sing=document.getElementById('sing'),uhoh=document.getElementById('uhoh'),lastpage=document.getElementById('lastpage'),cv=document.getElementById('drain');
+const uB=uhoh.querySelector('b'),uP=uhoh.querySelector('p'),uA=uhoh.querySelector('a');
+// paint the visible contacts page onto a canvas, text node by text node, so the shader can twist it
+const src=document.createElement('canvas');
+function paintSource(){const W=innerWidth,H=innerHeight;src.width=W;src.height=H;const c=src.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,W,H);
+ const walker=document.createTreeWalker(lastpage,NodeFilter.SHOW_TEXT);let n;
+ while(n=walker.nextNode()){if(!n.textContent.trim())continue;const el=n.parentElement,cs=getComputedStyle(el);const rg=document.createRange();rg.selectNodeContents(n);
+  for(const r of rg.getClientRects()){c.font=`${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;c.fillStyle=cs.color;c.textBaseline='middle';c.letterSpacing=cs.letterSpacing==='normal'?'0px':cs.letterSpacing;
+{let tx=n.textContent.replace(/^\s+/,'');if(cs.textTransform==='uppercase')tx=tx.toUpperCase();c.fillText(tx,r.left,r.top+r.height/2)}}}}
+let gl,prog_,tex,uK,uT,uRes,glOK=false;
+function initGL(){gl=cv.getContext('webgl',{premultipliedAlpha:false});if(!gl)return;
+ const vs=`attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
+ const fs=`precision highp float;uniform sampler2D t;uniform float k;uniform float tm;uniform vec2 res;
+ void main(){vec2 uv=gl_FragCoord.xy/res;uv.y=1.-uv.y;float asp=res.x/res.y;vec2 c=uv-.5;c.x*=asp;
+  float r=length(c),a=atan(c.y,c.x);
+  float s=max(1.-pow(k,1.6),0.0001);
+  float rs=r/s*(1.+1.5*k*(1.-r));                 // everything is pulled toward the point
+  float tw=pow(k,1.3)*(7./(r*6.+.3))+tm*k*1.5;              // and twists harder the closer it gets
+  float as=a+tw;
+  vec2 q=vec2(cos(as),sin(as))*rs;q.x/=asp;q+=.5;
+  vec3 col=(q.x<0.||q.x>1.||q.y<0.||q.y>1.)?vec3(0.):texture2D(t,q).rgb;
+  col*=mix(1.,smoothstep(0.,.02+.22*k,r),min(k*4.,1.));   // a dark pit opens at the point
+  gl_FragColor=vec4(col,1.);}`;
+ const sh=(ty,code)=>{const x=gl.createShader(ty);gl.shaderSource(x,code);gl.compileShader(x);return x};
+ prog_=gl.createProgram();gl.attachShader(prog_,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog_,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog_);gl.useProgram(prog_);
+ const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+ const loc=gl.getAttribLocation(prog_,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+ tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);['TEXTURE_WRAP_S','TEXTURE_WRAP_T'].forEach(w=>gl.texParameteri(gl.TEXTURE_2D,gl[w],gl.CLAMP_TO_EDGE));gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+ uK=gl.getUniformLocation(prog_,'k');uT=gl.getUniformLocation(prog_,'tm');uRes=gl.getUniformLocation(prog_,'res');glOK=true}
+let painted=false,DK=0,vis=false,t0=0;
+function upload(){paintSource();gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,src);painted=true}
+function draw(now){if(!vis||!glOK)return;const dpr=Math.min(devicePixelRatio,2);const W=innerWidth*dpr,H=innerHeight*dpr;if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H}
+ gl.viewport(0,0,W,H);gl.uniform1f(uK,DK);gl.uniform1f(uT,t0?(now-t0)/1000:0);gl.uniform2f(uRes,W,H);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);if(DK>0&&DK<1)requestAnimationFrame(draw)}
+new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!glOK)initGL()}).observe(sing);
+addEventListener('resize',()=>{painted=false});
+function singScroll(){const r=sing.getBoundingClientRect();const p=clamp(-r.top/(sing.offsetHeight-innerHeight));
+ const k=still?0:seg(p,.12,.68)*1.0;  // first 12% you can still read and click the contacts
+ const active=k>0&&glOK;
+ if(active&&!painted)upload();
+ if(!active){painted=false;t0=0}
+ cv.style.display=active?'block':'none';
+ if(!glOK&&vis){lastpage.style.opacity=1-k;lastpage.style.transform=`scale(${1-k}) rotate(${k*720}deg)`} // fallback without WebGLlastpage.style.visibility=active||(still&&p>.12)?'hidden':'visible';
+ DK=Math.min(k,1);if(active){t0=t0||performance.now();requestAnimationFrame(draw)}
+ const fade=(el,a,b)=>{const t=ease(seg(p,a,b));el.style.opacity=t;el.style.transform=`translateY(${(1-t)*18}px)`};
+ fade(uB,.66,.76);fade(uP,.74,.85);fade(uA,.83,.92)}
+function onScroll(){introScroll();reelScroll();noteScroll();singScroll();document.querySelector('.top').classList.toggle('on',prog(stage)>.9&&prog(sing)<.1)}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+</script></body></html>

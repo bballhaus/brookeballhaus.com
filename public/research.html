@@ -1,144 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Academia — Brooke Ballhaus</title>
-  <meta name="description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Brooke Ballhaus">
-  <meta property="og:title" content="Academia — Brooke Ballhaus">
-  <meta property="og:description" content="Brooke Ballhaus: Stanford BS/MS in Computer Science (AI). Building AI systems grounded in human-centered design.">
-  <meta property="og:url" content="https://brookeballhaus.com/research">
-  <meta property="og:image" content="https://brookeballhaus.com/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Brooke Ballhaus on the Main Quad at Stanford">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#8c1515">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia — Brooke Ballhaus</title>
+<meta name="description" content="Research, teaching and coursework at Stanford by Brooke Ballhaus.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brooke Ballhaus">
+<meta property="og:title" content="Academia — Brooke Ballhaus">
+<meta property="og:description" content="Research, teaching and coursework at Stanford by Brooke Ballhaus.">
+<meta property="og:url" content="https://brookeballhaus.com/research">
+<meta property="og:image" content="https://brookeballhaus.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1f2a44">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <header class="topbar">
-    <a href="index.html" class="mono">Brooke Ballhaus</a>
-    <nav class="mono"><a href="research.html" aria-current="page">Academia</a><a href="products.html">Products</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav>
-    <span class="mono muted">Stanford, CA</span>
-  </header>
-
-  <section class="section page">
-    <header class="section-head">
-      <p class="mono muted label">(01)</p>
-      <h2 class="slide-title">Academia</h2>
-      <p class="mono muted small count">06 projects</p>
-    </header>
-    <p class="page-intro reveal">Research, teaching and coursework at Stanford, across multi-agent reinforcement learning, interpretability, computer vision and clinical NLP.</p>
-    <p class="mono muted label sub">Research &amp; projects</p>
-    <div class="with-rail">
-      <aside class="rail mono" aria-label="Projects"><ol><li><a href="#p1"><span>01</span>Emergent Cooperation in a Pandemic</a><i></i></li><li><a href="#p2"><span>02</span>Chain-of-Thought Faithfulness Audit</a><i></i></li><li><a href="#p3"><span>03</span>Showjumping Outcome Prediction</a><i></i></li><li><a href="#p4"><span>04</span>HierTag: Extracting HPO Codes from Clinical Notes</a><i></i></li><li><a href="#p5"><span>05</span>Offline RL for Menstrual Health</a><i></i></li><li><a href="#p6"><span>06</span>Learned A* Heuristics</a><i></i></li></ol></aside>
-    <div class="rows">
-      <article class="row reveal" id="p1">
-        <span class="num">01</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic <span class="arrow">↗</span></a></h3>
-          <p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths <span class="mk" data-mk="o">4–11%</span> versus selfish baselines.</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-narain-2026-pandemic-marl.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="papers/ballhaus-narain-2026-pandemic-marl-poster.pdf">Poster <span class="arrow">↗</span></a></li><li><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Code <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul>
-        </div>
-        <span class="course">CS 224R</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-pandemic.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-      <article class="row reveal" id="p2">
-        <span class="num">02</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-Thought Faithfulness Audit <span class="arrow">↗</span></a></h3>
-          <p>When can we trust AI explanations? A mechanistic audit of chain-of-thought in Llama-3-8B with logit lens and activation patching: the model commits to its answer in the <span class="mk" data-mk="u">last ~3 of 32 layers</span> whether or not it reasons first.</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-narain-2026-cot-faithfulness.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="papers/ballhaus-narain-2026-cot-faithfulness-poster.pdf">Poster <span class="arrow">↗</span></a></li><li><a href="https://github.com/bballhaus/cot-faithfulness-audit">Code <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul>
-        </div>
-        <span class="course">CS 281</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-cot.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-      <article class="row reveal" id="p3">
-        <span class="num">03</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping Outcome Prediction <span class="arrow">↗</span></a></h3>
-          <p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the <span class="mk" data-mk="u">venue confound</span>.</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-2026-showjumping-ssl.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="https://github.com/bballhaus/showjumping-ssl">Code <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul>
-        </div>
-        <span class="course">CS 131</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-showjumping.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-      <article class="row reveal" id="p4">
-        <span class="num">04</span>
-        <div class="row-main">
-          <h3>HierTag: Extracting HPO Codes from Clinical Notes</h3>
-          <p>A hybrid model that codes rare-disease phenotypes from free-text clinical notes by following the Human Phenotype Ontology hierarchy, and abstains when it is unsure. It <span class="mk" data-mk="u">beats PhenoBERT</span> on precision and F1 on the GSC+ and ID-68 benchmarks. With Riya Narain.</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-narain-2025-hiertag-hpo.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="papers/ballhaus-narain-2025-hiertag-hpo-poster.pdf">Poster <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>PyTorch</li><li>Clinical NLP</li><li>HPO</li></ul>
-        </div>
-        <span class="course">CS 224N · Winter 2025</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-hpo.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-      <article class="row reveal" id="p5">
-        <span class="num">05</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for Menstrual Health <span class="arrow">↗</span></a></h3>
-          <p>Personalized menstrual-health recommendations learned offline from wearable data with fitted Q-iteration and behavior cloning.</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-menon-narain-2025-menstrual-health-offline-rl.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="https://github.com/riyanarain/mcphases-rl">Code <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>scikit-learn</li><li>Offline RL</li></ul>
-        </div>
-        <span class="course">CS 238 · with collaborators</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-cycles.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-      <article class="row reveal" id="p6">
-        <span class="num">06</span>
-        <div class="row-main">
-          <h3><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* Heuristics <span class="arrow">↗</span></a></h3>
-          <p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p>
-          <ul class="links mono"><li><a href="papers/ballhaus-narain-2025-astar-qlearning.pdf">Paper <span class="arrow">↗</span></a></li><li><a href="papers/ballhaus-narain-2025-astar-qlearning-slides.pdf">Slides <span class="arrow">↗</span></a></li><li><a href="https://github.com/bballhaus/HeuristicWithQLearning">Code <span class="arrow">↗</span></a></li></ul>
-          <ul class="tags"><li>Python</li><li>Q-learning</li></ul>
-        </div>
-        <span class="course">CS 221</span>
-        <div class="thumb-wrap"><img class="thumb photo" src="img/research-astar.jpg" alt="" width="1200" height="900" loading="lazy" data-parallax="0.08"></div>
-      </article>
-    </div></div>
-
-    <p class="mono muted label sub reveal">Teaching</p>
-    <div class="rows">
-      <article class="row reveal">
-        <span class="num">T1</span>
-        <div class="row-main">
-          <h3>CS107 Teaching Assistant</h3>
-          <p>Lead weekly lab sections for Stanford's systems programming course, teaching C, memory, and debugging with gdb and Valgrind to 30 students.</p>
-        </div>
-        <span class="course">Stanford · 09/2026 – now</span>
-        <div></div>
-      </article>
-    </div>
-    <p class="mono muted label sub reveal">Graduate coursework</p>
-    <ul class="coursework reveal">
-      <li>NLP with Deep Learning <span class="mono muted">CS 224N</span></li>
-      <li>Deep Reinforcement Learning <span class="mono muted">CS 224R</span></li>
-      <li>Ethics of AI <span class="mono muted">CS 281</span></li>
-      <li>Decision Making Under Uncertainty <span class="mono muted">CS 238</span></li>
-      <li>Computer Vision <span class="mono muted">CS 131</span></li>
-      <li>Building Apps with LLMs <span class="mono muted">CS 224G</span></li>
-    </ul>
-
-  </section>
-  <nav class="next mono"><a href="index.html">← Home</a><a href="products.html">Products →</a></nav>
-
-  <footer class="mono muted small"><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
-
-  <div class="progress" aria-hidden="true"><span></span></div>
-  <script src="motion.js"></script>
+<header class="top"><a class="brand" href="index.html">Brooke Ballhaus</a><nav><a href="products.html">Product</a><a href="research.html" aria-current="page">Academia</a><a href="showjumping.html">Showjumping</a><a href="polo.html">Polo</a><a href="triathlon.html">Triathlon</a><a href="thoughts.html">Thoughts</a><a href="resume.html">Resume</a><a href="index.html#contact">Contact</a></nav></header>
+<section class="hero">
+ <figure class="pol" style="--r:3deg"><img src="img/polaroids/academia.jpg" alt="Main Quad, Stanford" width="560" height="700"><figcaption>Main Quad, Stanford</figcaption></figure>
+ <div><h1>Academia</h1><p class="intro">Research, teaching and coursework at Stanford, across multi-agent reinforcement learning, interpretability, computer vision and clinical NLP.</p></div>
+</section>
+<section class="entries">
+<p class="label">Research &amp; projects</p>
+<article class="entry">
+ <figure class="pol"><img src="img/research-pandemic.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 224R</figcaption></figure>
+ <div class="txt"><p class="meta">CS 224R</p><h2><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Emergent Cooperation in a Pandemic ↗</a></h2><p>Can selfish multi-agent RL agents learn to share scarce medical resources? An impact reward cuts deaths 4–11% versus selfish baselines.</p><ul class="links"><li><a href="papers/ballhaus-narain-2026-pandemic-marl.pdf">Paper ↗</a></li><li><a href="papers/ballhaus-narain-2026-pandemic-marl-poster.pdf">Poster ↗</a></li><li><a href="https://github.com/bballhaus/emergent-cooperation-pandemic">Code ↗</a></li></ul><ul class="tags"><li>PyTorch</li><li>IPPO / MAPPO</li><li>SEIR sim</li></ul></div>
+</article>
+<article class="entry">
+ <figure class="pol"><img src="img/research-cot.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 281</figcaption></figure>
+ <div class="txt"><p class="meta">CS 281</p><h2><a href="https://github.com/bballhaus/cot-faithfulness-audit">Chain-of-Thought Faithfulness Audit ↗</a></h2><p>When can we trust AI explanations? A mechanistic audit of chain-of-thought in Llama-3-8B with logit lens and activation patching: the model commits to its answer in the last ~3 of 32 layers whether or not it reasons first.</p><ul class="links"><li><a href="papers/ballhaus-narain-2026-cot-faithfulness.pdf">Paper ↗</a></li><li><a href="papers/ballhaus-narain-2026-cot-faithfulness-poster.pdf">Poster ↗</a></li><li><a href="https://github.com/bballhaus/cot-faithfulness-audit">Code ↗</a></li></ul><ul class="tags"><li>TransformerLens</li><li>Llama-3</li></ul></div>
+</article>
+<article class="entry">
+ <figure class="pol"><img src="img/research-showjumping.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 131</figcaption></figure>
+ <div class="txt"><p class="meta">CS 131</p><h2><a href="https://github.com/bballhaus/showjumping-ssl">Showjumping Outcome Prediction ↗</a></h2><p>Predicting showjumping outcomes from broadcast video with self-supervised representations, controlling for the venue confound.</p><ul class="links"><li><a href="papers/ballhaus-2026-showjumping-ssl.pdf">Paper ↗</a></li><li><a href="https://github.com/bballhaus/showjumping-ssl">Code ↗</a></li></ul><ul class="tags"><li>R(2+1)D</li><li>YOLOv8</li><li>InfoNCE</li></ul></div>
+</article>
+<article class="entry">
+ <figure class="pol"><img src="img/research-hpo.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 224N</figcaption></figure>
+ <div class="txt"><p class="meta">CS 224N · Winter 2025</p><h2>HierTag: Extracting HPO Codes from Clinical Notes</h2><p>A hybrid model that codes rare-disease phenotypes from free-text clinical notes by following the Human Phenotype Ontology hierarchy, and abstains when it is unsure. It beats PhenoBERT on precision and F1 on the GSC+ and ID-68 benchmarks. With Riya Narain.</p><ul class="links"><li><a href="papers/ballhaus-narain-2025-hiertag-hpo.pdf">Paper ↗</a></li><li><a href="papers/ballhaus-narain-2025-hiertag-hpo-poster.pdf">Poster ↗</a></li></ul><ul class="tags"><li>PyTorch</li><li>Clinical NLP</li><li>HPO</li></ul></div>
+</article>
+<article class="entry">
+ <figure class="pol"><img src="img/research-cycles.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 238</figcaption></figure>
+ <div class="txt"><p class="meta">CS 238 · with collaborators</p><h2><a href="https://github.com/riyanarain/mcphases-rl">Offline RL for Menstrual Health ↗</a></h2><p>Personalized menstrual-health recommendations learned offline from wearable data with fitted Q-iteration and behavior cloning.</p><ul class="links"><li><a href="papers/ballhaus-menon-narain-2025-menstrual-health-offline-rl.pdf">Paper ↗</a></li><li><a href="https://github.com/riyanarain/mcphases-rl">Code ↗</a></li></ul><ul class="tags"><li>scikit-learn</li><li>Offline RL</li></ul></div>
+</article>
+<article class="entry">
+ <figure class="pol"><img src="img/research-astar.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS 221</figcaption></figure>
+ <div class="txt"><p class="meta">CS 221</p><h2><a href="https://github.com/bballhaus/HeuristicWithQLearning">Learned A* Heuristics ↗</a></h2><p>Can Q-learning learn better A* heuristics for imperfect mazes with loops?</p><ul class="links"><li><a href="papers/ballhaus-narain-2025-astar-qlearning.pdf">Paper ↗</a></li><li><a href="papers/ballhaus-narain-2025-astar-qlearning-slides.pdf">Slides ↗</a></li><li><a href="https://github.com/bballhaus/HeuristicWithQLearning">Code ↗</a></li></ul><ul class="tags"><li>Python</li><li>Q-learning</li></ul></div>
+</article>
+<p class="label">Teaching</p>
+<article class="entry">
+ <figure class="pol"><img src="img/polaroids/academia.jpg" alt="" width="560" height="700" loading="lazy"><figcaption>CS107</figcaption></figure>
+ <div class="txt"><p class="meta">Stanford · 09/2026 – now</p><h2>CS107 Teaching Assistant</h2><p>Lead weekly lab sections for Stanford's systems programming course, teaching C, memory, and debugging with gdb and Valgrind to 30 students.</p></div>
+</article>
+</section>
+<section class="plain"><p class="label">Graduate coursework</p><ul><li>NLP with Deep Learning<span>CS 224N</span></li><li>Deep Reinforcement Learning<span>CS 224R</span></li><li>Ethics of AI<span>CS 281</span></li><li>Decision Making Under Uncertainty<span>CS 238</span></li><li>Computer Vision<span>CS 131</span></li><li>Building Apps with LLMs<span>CS 224G</span></li></ul></section>
+<nav class="pager"><a href="products.html">← Product</a><a href="showjumping.html">Showjumping →</a></nav>
+<footer><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
+<script src="page.js"></script>
 </body>
 </html>
