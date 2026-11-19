@@ -87,3 +87,4 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .transcript td:nth-child(2){width:56px;color:var(--muted)}
 .transcript .u{text-align:right;width:64px}
 .transcript .instr{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.transcript table{margin-top:6px}.transcript .u{width:110px}
