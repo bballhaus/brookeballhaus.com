@@ -1,6 +1,6 @@
 /* 2026-11-19 redesign: white, Times New Roman, typewriter notes and captions, polaroids */
 *{box-sizing:border-box;margin:0}
-:root{--ink:#1a1a1a;--muted:#6b6b6b;--accent:#1f2a44;--type:"Special Elite","Courier New",monospace;--serif:"Times New Roman",Times,serif}
+:root{--ink:#1a1a1a;--muted:#6b6b6b;--accent:#2c4a8f;--type:"Special Elite","Courier New",monospace;--serif:"Times New Roman",Times,serif}
 body{background:#fff;color:var(--ink);font:18px/1.55 var(--serif);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block}
@@ -70,3 +70,5 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .hero h1{font-size:clamp(52px,7.5vw,120px)}
 .entry h2{font-size:clamp(26px,2.6vw,40px)}
 .entry p,.hero .intro{font-size:16px}
+/* no top bar: just the name in the corner */
+.top{right:auto;background:none;padding:22px 40px}
