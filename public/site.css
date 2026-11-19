@@ -176,3 +176,4 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .race-pols{margin-top:30px}
 .race-pols .pol{transform:rotate(var(--r));padding:10px 10px 38px}
 .race-pols .pol figcaption{bottom:10px}
+.race-pols .pol{padding:10px 10px 30px}
