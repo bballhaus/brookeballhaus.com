@@ -132,3 +132,11 @@ body{text-transform:uppercase;letter-spacing:.12em}
 @media(max-width:700px){.ihsa{padding:20px}.ihsa-list li{grid-template-columns:1fr;gap:4px}}
 .ihsa .label{margin-top:0}
 .ihsa{margin:10vh auto 6vh}
+.ihsa{max-width:1100px}
+.ihsa-list{max-width:760px}
+.ihsa-pols{grid-template-columns:repeat(5,1fr);gap:clamp(10px,2vw,24px);margin-top:28px}
+.ihsa-pols .pol{padding:8px 8px 26px}
+.ihsa-pols .pol img{aspect-ratio:4/5}
+@media(max-width:800px){.ihsa-pols{grid-template-columns:repeat(2,1fr)}}
+.ihsa-pols .pol{transform:rotate(var(--r))}
+.ihsa-pols .pol:nth-child(1) img{object-position:62% 50%}.ihsa-pols .pol:nth-child(2) img{object-position:35% 50%}
