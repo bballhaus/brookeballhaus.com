@@ -131,3 +131,4 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .ihsa .src{margin-top:12px;font-size:13px}.ihsa .src a{color:var(--accent)}
 @media(max-width:700px){.ihsa{padding:20px}.ihsa-list li{grid-template-columns:1fr;gap:4px}}
 .ihsa .label{margin-top:0}
+.ihsa{margin:10vh auto 6vh}
