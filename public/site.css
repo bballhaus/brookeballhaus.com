@@ -112,3 +112,10 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .pols .pol:nth-child(3){left:50%;top:16%;z-index:3}
 .shows .more{text-align:center;margin-top:4vh}
 @media(max-width:800px){.show{grid-template-columns:1fr}.show:nth-child(even) .pols{order:0}.pols{height:62vw}}
+/* showjumping v2: photos sit side by side under the recap, no overlap */
+.show{grid-template-columns:1fr;gap:4vh}
+.show:nth-child(even) .pols{order:0}
+.pols{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);align-items:start}
+.pols .pol{position:relative;width:auto;left:auto!important;top:auto!important}
+.pols .pol:nth-child(2){margin-top:18px}
+@media(max-width:800px){.pols{height:auto;gap:12px}.pols .pol{padding:6px 6px 22px}.pols .pol:nth-child(2){margin-top:8px}}
