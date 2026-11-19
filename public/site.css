@@ -88,3 +88,5 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .transcript .u{text-align:right;width:64px}
 .transcript .instr{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .transcript table{margin-top:6px}.transcript .u{width:110px}
+.tx-gap{margin-top:56px}
+.transcript td:nth-child(2){width:auto;color:inherit}.transcript td:first-child{width:110px}
