@@ -21,4 +21,23 @@
     });
   }
   addEventListener('scroll', toss, { passive: true }); addEventListener('resize', toss); toss();
+
+  // showjumping: each show's three polaroids toss in one after another
+  const shows = [...document.querySelectorAll('.show')];
+  function tossShows() {
+    shows.forEach((sh, i) => {
+      const r = sh.getBoundingClientRect();
+      const base = clamp((innerHeight - r.top) / (innerHeight * .7));
+      const side = i % 2 ? -1 : 1;
+      sh.querySelectorAll('.pols .pol').forEach((p, j) => {
+        const t = still ? 1 : ease(clamp(base * 1.6 - j * .25));
+        const rot = parseFloat(p.style.getPropertyValue('--r')) || 0;
+        p.style.transform = `translate(${side * (1 - t) * 60}vw, ${(1 - t) * -15}vh) rotate(${rot + side * (1 - t) * 420}deg)`;
+        p.style.opacity = t > 0.02 ? 1 : 0;
+      });
+      const txt = sh.querySelector('.txt');
+      if (txt) { const t = still ? 1 : ease(clamp(base * 1.4)); txt.style.opacity = clamp(t * 1.4 - .3); txt.style.transform = `translateY(${(1 - t) * 30}px)`; }
+    });
+  }
+  if (shows.length) { addEventListener('scroll', tossShows, { passive: true }); addEventListener('resize', tossShows); tossShows(); }
 })();
