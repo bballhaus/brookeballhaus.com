@@ -157,3 +157,19 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .splits .n{color:var(--muted);text-align:right;font-size:13px}
 .splits .tot td{border-top:2px solid var(--ink);border-bottom:none;font-size:17px}
 @media(max-width:760px){.race{padding:22px}.race-grid{grid-template-columns:1fr}}
+/* triathlon: the path to upcoming races */
+.tpath{max-width:980px;margin:2vh auto 2vh;padding:0 6vw}
+.tpath ol{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.tpath ol:before{content:"";position:absolute;left:calc(100%/6);right:calc(100%/6);top:11px;border-top:3px dashed var(--accent);opacity:.55}
+.tpath li{position:relative;text-align:center;padding:0 10px}
+.tpath .dot{display:block;width:24px;height:24px;margin:0 auto 14px;border-radius:50%;border:3px solid var(--accent);background:#fff;position:relative;z-index:1}
+.tpath .done .dot{background:var(--accent)}
+.tpath .next .dot{animation:tpulse 2.4s ease-in-out infinite}
+.tpath li:nth-child(3) .dot{animation-delay:.6s}
+@keyframes tpulse{0%,100%{box-shadow:0 0 0 0 rgba(44,74,143,.35)}50%{box-shadow:0 0 0 10px rgba(44,74,143,0)}}
+.tpath .when{display:block;font:13px var(--type);color:var(--muted);text-transform:none;letter-spacing:normal;margin-bottom:4px}
+.tpath b{display:block;font-weight:400;font-size:17px;margin-bottom:4px}
+.tpath .d{display:block;font:13px var(--type);color:var(--muted);text-transform:none;letter-spacing:normal}
+@media(max-width:700px){.tpath ol{grid-template-columns:1fr;gap:26px}.tpath ol:before{left:11px;right:auto;top:12px;bottom:12px;border-top:none;border-left:3px dashed var(--accent)}.tpath li{text-align:left;padding-left:42px}.tpath .dot{position:absolute;left:0;top:0;margin:0}}
+@media(prefers-reduced-motion:reduce){.tpath .next .dot{animation:none}}
+@media(max-width:700px){.tpath ol:before{bottom:auto;height:calc(100% - 60px)}}
