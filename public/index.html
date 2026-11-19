@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .word.more{font-style:italic}
 .word.more{opacity:1;font-style:italic;font-size:clamp(34px,3.6vw,58px)}
 .mw{display:inline-block;opacity:0;will-change:transform}
-.spol{cursor:pointer;transition:box-shadow .3s}
+.spol{transition:box-shadow .3s}.spol.ready,.rpol{cursor:pointer}.rpol{transition:box-shadow .3s}.rpol:hover{box-shadow:0 28px 60px rgba(26,26,26,.28)}
 .spol:hover{box-shadow:0 28px 60px rgba(26,26,26,.28)}
 
 /* 3. note */
@@ -100,8 +100,8 @@ body{text-transform:uppercase;letter-spacing:.12em}
 <div class="stage" id="stage"><div class="intro" id="intro"><h1 class="name" id="name" aria-label="Brooke Ballhaus">Brooke Ballhaus</h1><span class="hint" id="hint">Scroll</span></div></div>
 
 <div class="reel" id="reel"><div class="reel-pin">
- <figure class="pol" data-x="-30" data-r="-6"><img src="img/polaroids/product.jpg" width="560" height="700" alt="Product photo"><figcaption></figcaption></figure>
- <figure class="pol" data-x="0" data-r="3"><img src="img/polaroids/academia.jpg" width="560" height="700" alt="Brooke on the Main Quad at Stanford"><figcaption>Main Quad, Stanford</figcaption></figure>
+ <figure class="pol rpol" data-x="-30" data-r="-6" data-href="products.html"><img src="img/polaroids/product.jpg" width="560" height="700" alt="Product photo"><figcaption></figcaption></figure>
+ <figure class="pol rpol" data-x="0" data-r="3" data-href="research.html"><img src="img/polaroids/academia.jpg" width="560" height="700" alt="Brooke on the Main Quad at Stanford"><figcaption>Main Quad, Stanford</figcaption></figure>
  <figure class="pol spol" data-x="30" data-r="-3" data-href="showjumping.html"><img src="img/polaroids/showjumping.jpg" width="560" height="700" alt="Brooke showjumping"><figcaption>Showjumping</figcaption></figure>
  <figure class="pol spol" data-x="31" data-r="4" data-href="polo.html"><img src="img/polaroids/polo.jpg" width="560" height="700" alt="Brooke playing polo"><figcaption>Polo</figcaption></figure>
  <figure class="pol spol" data-x="29" data-r="-7" data-href="triathlon.html"><img src="img/polaroids/triathlon.jpg" width="560" height="700" alt="Brooke with a triathlon medal"><figcaption>Triathlon</figcaption></figure>
@@ -175,32 +175,40 @@ const reel=document.getElementById('reel'),pols=[...document.querySelectorAll('.
 const K=[[0,-95,-40,-900,.4],[.35,-62,30,-560,.6],[.7,-30,-10,-160,.92]];
 function path(t,fx,fr){if(t<=.35){const u=t/.35;return [-95+33*u,-40+70*u,-900+340*u,.4+.2*u]}if(t<=.7){const u=(t-.35)/.35;return [-62+32*u,30-40*u,-560+400*u,.6+.32*u]}
  const u=(t-.7)/.3;return [-30+(fx+30)*u,-10+10*u,-160+(fr+160)*u,.92+.08*u]}
-function slam(el,t,base){const e=t<.7?t/.7:1,ov=t<.7?0:Math.sin((t-.7)/.3*Math.PI)*.06;el.style.opacity=t>0?1:0;el.style.transform=`${base} translateY(${(1-ease(e))*-55}vh) scale(${2.2-1.2*e-ov})`}
+function slam(el,t,base){const e=t<.7?t/.7:1,ov=t<.7?0:Math.sin((t-.7)/.3*Math.PI)*.06;el.style.opacity=t>0?1:0;el.style.pointerEvents=t>0?'auto':'none';el.style.transform=`${base} translateY(${(1-ease(e))*-55}vh) scale(${2.2-1.2*e-ov})`}
 const rowPols=pols.filter(x=>!x.classList.contains('spol')),stack=pols.filter(x=>x.classList.contains('spol'));
 const moreline=document.getElementById('moreline'),mws=[...moreline.querySelectorAll('.mw')];
-let spread=0,spreadTo=0,hovered=-1,landed=false,lastP=0;
-function place(pol,t,extra){const [x,y,r,s]=path(t,+pol.dataset.x,+pol.dataset.r);pol.style.opacity=t>0?1:0;
+let spread=0,spreadTo=0,hovered=-1,landed=false,lastP=0,landedCards=[];
+function place(pol,t,extra){const [x,y,r,s]=path(t,+pol.dataset.x,+pol.dataset.r);pol.style.opacity=t>0?1:0;pol.style.pointerEvents=t>0?'auto':'none';
  const e=extra||{dx:0,dy:0,dr:0,ds:0};pol.style.transform=`translate(-50%,-50%) translate(${x+e.dx}vw,${y+e.dy}vh) rotate(${r+e.dr}deg) scale(${s+e.ds})`}
 function slamWord(el,t){const e=t<.7?t/.7:1,ov=t<.7?0:Math.sin((t-.7)/.3*Math.PI)*.06;el.style.opacity=t>0?1:0;el.style.transform=`translateY(${(1-ease(e))*-55}vh) scale(${2.2-1.2*e-ov})`}
 function reelScroll(){const p=prog(reel);lastP=p;
  rowPols.forEach((pol,i)=>{const a=i*.15;place(pol,ease(seg(p,a,a+.1)),{dx:0,dy:spread*6,dr:0,ds:-spread*.1});if(spread>.01)pol.style.opacity=1-spread*.92});
  words.slice(0,2).forEach(w=>w.style.filter=`opacity(${1-spread*.92})`);
+ rowPols.forEach(pol=>{if(spread>.5)pol.style.pointerEvents='none'});
  words.slice(0,2).forEach((w,i)=>{const a=i*.15+.105;slam(w,seg(p,a,a+.04),`translateX(calc(-50% + ${+w.dataset.x}vw))`)});
  moreline.style.transform='translateX(calc(-50% + 30vw))';
  // the topic stack: first card + "And", then three more land on top with "oh", "so", "much", then "more"
  const starts=[.30,.45,.58,.71];
- landed=true;
- stack.forEach((pol,k)=>{const a=starts[k],t=ease(seg(p,a,a+.1));if(t<1)landed=false;pol.style.zIndex=10+(k===hovered&&spread>.05?10:k);
-  const n=stack.length,c=(k-(n-1)/2);const sp=spread;
-  place(pol,t,{dx:(c*21-30)*sp,dy:-Math.abs(c)*2*sp+(k===hovered?-4*sp:0),dr:(c*4-(+pol.dataset.r))*sp,ds:(k===hovered?.06:0)*sp})});
+ // cards that have landed can be fanned out and clicked even while later ones are still flying in
+ const ts=stack.map((pol,k)=>ease(seg(p,starts[k],starts[k]+.1)));
+ landedCards=stack.filter((pol,k)=>ts[k]>=1);landed=landedCards.length>0;
+ stack.forEach((pol,k)=>{const t=ts[k],j=landedCards.indexOf(pol);pol.style.zIndex=10+(k===hovered&&spread>.05?10:k);
+  pol.classList.toggle('ready',j>=0);
+  if(j<0){place(pol,t);return}
+  const n=ready.length,c=(j-(n-1)/2);const sp=spread;
+  place(pol,t,{dx:(c*21-30+(4-n)*0)*sp,dy:-Math.abs(c)*2*sp+(k===hovered?-4*sp:0),dr:(c*4-(+pol.dataset.r))*sp,ds:(k===hovered?.06:0)*sp})});
  mws.forEach((w,k)=>{const a=k<4?starts[k]+.105:.84;slamWord(w,seg(p,a,a+.04))});
  if(!landed){spreadTo=0}}
 // hover the pile to fan it out
-function inStack(x,y){return stack.some(pol=>{const r=pol.getBoundingClientRect();return x>r.left-20&&x<r.right+20&&y>r.top-20&&y<r.bottom+20})}
+function inStack(x,y){return landedCards.some(pol=>{const r=pol.getBoundingClientRect();return x>r.left-20&&x<r.right+20&&y>r.top-20&&y<r.bottom+20})}
 addEventListener('mousemove',e=>{const inside=landed&&inStack(e.clientX,e.clientY);spreadTo=inside?1:0;
  hovered=inside?stack.findIndex((pol,k)=>{const top=stack.slice().map((q,i)=>[q,i]).reverse();return false}):-1;
- if(inside){let best=-1,bz=-1;stack.forEach((pol,k)=>{const r=pol.getBoundingClientRect();if(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom){const z=+pol.style.zIndex;if(z>bz){bz=z;best=k}}});hovered=best}});
-stack.forEach(pol=>pol.addEventListener('click',()=>{if(spread>.5)location.href=pol.dataset.href;else if(landed)spreadTo=1})); // tap to spread on phones
+ if(inside){let best=-1,bz=-1;stack.forEach((pol,k)=>{if(!landedCards.includes(pol))return;const r=pol.getBoundingClientRect();if(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom){const z=+pol.style.zIndex;if(z>bz){bz=z;best=k}}});hovered=best}});
+// a landed card always opens its page: with a mouse straight away, on touch the first tap fans the pile and the next opens
+const touchy=matchMedia('(hover: none)').matches;
+stack.forEach(pol=>pol.addEventListener('click',()=>{if(!landedCards.includes(pol))return;if(!touchy||spread>.5||landedCards.length===1)location.href=pol.dataset.href;else spreadTo=1}));
+rowPols.forEach(pol=>{if(pol.dataset.href)pol.addEventListener('click',()=>location.href=pol.dataset.href)});
 (function tick(){const d=spreadTo-spread;if(Math.abs(d)>.002){spread+=d*.16;reelScroll()}requestAnimationFrame(tick)})();
 
 /* note: pops up, gets folded into an envelope, and ships */
