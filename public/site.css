@@ -196,3 +196,32 @@ body{text-transform:uppercase;letter-spacing:.12em}
 @media(hover:hover){.top .dd:hover .menu{display:block}}
 .top .dd.open .menu,.top .dd:focus-within .menu{display:block}
 @media(max-width:760px){.top .menu{left:-10px;right:auto}}
+/* 2026-11-19: resume page in the new style */
+.btn{display:inline-block;font:15px var(--type);text-transform:none;letter-spacing:normal;background:var(--accent);color:#fff;padding:10px 18px;margin:0 12px 12px 0;box-shadow:0 6px 16px rgba(44,74,143,.22);transition:transform .15s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn.ghost{background:#fff;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+.cv-cta{display:block;margin-top:26px}
+.cvwrap{padding:0 8vw 6vh;max-width:1100px;margin:0 auto}
+.cv-row{display:grid;grid-template-columns:170px 1fr;gap:4vw;padding:26px 0;border-top:1px dotted #ccc}
+.cv-when{font:14px/1.5 var(--type);color:var(--muted);text-transform:none;letter-spacing:normal}
+.cv-row h3{font:400 22px/1.2 var(--serif);letter-spacing:.06em}
+.cv-row h3 a:hover{color:var(--accent)}
+.cv-role{font:15px var(--type);color:var(--accent);text-transform:none;letter-spacing:normal;margin:4px 0 10px}
+.cv-row ul{padding-left:18px}
+.cv-row li,.cv-row div>p:not(.cv-role){text-transform:none;letter-spacing:normal;font-size:17px;line-height:1.55;margin:4px 0;max-width:720px}
+.cv-row b{font-weight:400;color:var(--accent)}
+.cv-skills{display:grid;grid-template-columns:170px 1fr;gap:14px 4vw}
+.cv-skills dt{font:14px var(--type);color:var(--muted);text-transform:none;letter-spacing:normal}
+.cv-skills dd{margin:0;text-transform:none;letter-spacing:normal;font-size:17px}
+.cv-dl{margin-top:8vh;text-align:center}
+@media(max-width:760px){.cv-row,.cv-skills{grid-template-columns:1fr;gap:6px}}
+/* calendar page */
+.probably{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:140px 8vw 40px;max-width:1240px;margin:0 auto}
+.probably .label{margin:0 0 3vh}
+.probably h1{font:400 clamp(40px,6.5vw,104px)/1.08 var(--serif);letter-spacing:.04em}
+.probably .doing{font-family:var(--type);text-transform:none;letter-spacing:0;color:var(--accent)}
+.probably .caret{font-family:var(--type);color:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.calwrap{padding:0 8vw 6vh;max-width:1100px;margin:0 auto}
+.calsnap{background:#fff;padding:14px;box-shadow:0 18px 40px rgba(26,26,26,.14);transform:rotate(-1deg)}
+.calsnap img{width:100%;height:auto}

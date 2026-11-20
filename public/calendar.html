@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Calendar — Brooke Ballhaus</title>
+<meta name="description" content="Find a time to meet with Brooke Ballhaus.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brooke Ballhaus">
+<meta property="og:title" content="My Calendar — Brooke Ballhaus">
+<meta property="og:description" content="Find a time to meet with Brooke Ballhaus.">
+<meta property="og:url" content="https://brookeballhaus.com/calendar">
+<meta property="og:image" content="https://brookeballhaus.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2c4a8f">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="top bar"><a class="brand" href="index.html">Brooke Ballhaus</a><nav><a href="products.html">Product</a><a href="research.html">Academia</a><div class="dd"><button type="button" aria-expanded="false">More <span class="car">▾</span></button><div class="menu"><a href="showjumping.html">Showjumping</a><a href="polo.html">Polo</a><a href="triathlon.html">Triathlon</a><a href="thoughts.html">Thoughts</a></div></div><div class="dd"><button type="button" aria-expanded="false" aria-current="page">Contact <span class="car">▾</span></button><div class="menu"><a href="resume.html">Resume</a><a href="index.html#sing">Quick Links</a><a href="index.html#contact">Send a Note</a><a href="calendar.html" aria-current="page">My Calendar</a></div></div></nav></header>
+<script>document.querySelectorAll('.top .dd>button').forEach(b=>b.addEventListener('click',e=>{const d=b.parentNode,o=!d.classList.contains('open');document.querySelectorAll('.top .dd.open').forEach(x=>{x.classList.remove('open');x.firstChild.setAttribute('aria-expanded','false')});if(o){d.classList.add('open');b.setAttribute('aria-expanded','true')}e.stopPropagation()}));document.addEventListener('click',()=>document.querySelectorAll('.top .dd.open').forEach(x=>{x.classList.remove('open');x.firstChild.setAttribute('aria-expanded','false')}));document.querySelectorAll('.top .menu a').forEach(a=>a.addEventListener('click',()=>{const d=a.closest('.dd');d&&d.classList.remove('open')}))</script>
+<section class="probably"><p class="label">Right now</p><h1>Brooke is probably<br><span class="doing" data-words="training|riding|teaching CS|working on big problems|working on small problems|playing piano|doing yoga|riding her bike|running|swimming|showjumping|playing polo|building Rooted">training</span><span class="caret">_</span></h1></section>
+<section class="calwrap"><p class="label">This week</p><figure class="calsnap"><p class="todo">Calendar snapshot goes here once Brooke sends it.</p></figure><p class="cv-dl"><a class="btn" href="mailto:ballhaus@stanford.edu?subject=Finding%20a%20time%20to%20meet">Book a time ↗</a></p></section>
+<script>(()=>{const el=document.querySelector('.doing');if(!el)return;const W=el.dataset.words.split('|');let i=0;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const sleep=t=>new Promise(r=>setTimeout(r,t));
+(async()=>{for(;;){await sleep(1600);let w=el.textContent;while(w.length){w=w.slice(0,-1);el.textContent=w;await sleep(35)}i=(i+1)%W.length;const n=W[i];for(let k=1;k<=n.length;k++){el.textContent=n.slice(0,k);await sleep(70)}}})()})()</script>
+<nav class="pager"><a href="resume.html">← Resume</a><a href="index.html">Home →</a></nav>
+<footer><span>© 2026 Brooke Ballhaus</span><a href="#">Back to top ↑</a></footer>
+<script src="page.js"></script>
+</body>
+</html>
