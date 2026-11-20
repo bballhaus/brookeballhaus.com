@@ -182,3 +182,17 @@ body{text-transform:uppercase;letter-spacing:.12em}
 .top.bar nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;font-size:14px}
 .top.bar nav a:hover,.top.bar nav a[aria-current]{color:var(--accent)}
 @media(max-width:760px){.top.bar{padding:14px 18px;flex-direction:column;gap:6px}.top.bar nav{gap:12px;justify-content:flex-start;font-size:12px}}
+
+/* header dropdowns */
+.top.bar nav{display:flex;align-items:baseline}
+.top .dd{position:relative}
+.top .dd>button{font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit;background:none;border:0;padding:0;cursor:pointer}
+.top .dd>button .car{font-size:.8em}
+.top .dd>button:hover,.top .dd>button[aria-current]{color:var(--accent)}
+.top .menu{display:none;position:absolute;right:-14px;top:100%;padding:14px 0 8px;min-width:180px;background:#fff;box-shadow:0 14px 30px rgba(26,26,26,.12);border:1px solid rgba(26,26,26,.08);z-index:40}
+.top .menu a{display:block;padding:8px 18px;white-space:nowrap}
+.top .menu a:hover,.top .menu a[aria-current]{color:var(--accent)}
+.top .menu a::after{display:none!important}
+@media(hover:hover){.top .dd:hover .menu{display:block}}
+.top .dd.open .menu,.top .dd:focus-within .menu{display:block}
+@media(max-width:760px){.top .menu{left:-10px;right:auto}}
