@@ -245,3 +245,4 @@ body{text-transform:uppercase;letter-spacing:.12em}
 @media(max-width:760px){.wk{grid-template-columns:34px repeat(5,1fr);gap:0 3px}.ev{padding:2px 3px}.ev span{display:none}.ev b{font-size:10px}}
 .wk-col{background:linear-gradient(#eee 1px,transparent 1px) 0 0/100% 56px}
 .ev.short{flex-direction:row;gap:6px;align-items:center;padding-top:1px;padding-bottom:1px}.ev.short span{display:none}
+.ev-metime{background:#f4e9d8;color:#7a5a2c}
